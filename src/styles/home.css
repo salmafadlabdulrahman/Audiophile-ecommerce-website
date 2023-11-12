@@ -61,5 +61,31 @@
   font-weight: 500;
   letter-spacing: 1px;
   filter: contrast(0.9);
-  /*margin-bottom: 3em;*/
+}
+
+.main {
+    background-color: white;
+}
+
+.main-container {
+    width: 90%;
+    margin: 0 auto;
+    border: 1px solid blueviolet;
+    padding-top: 2em;
+}
+
+.shop-item-container {
+    border: 1px solid violet;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f1f1f1;
+}
+
+.shop-item-container img{
+    /*max-width: 100%;*/
+    width: 140px;
+    /*max-width: 100%;*/
+    background: white;
 }

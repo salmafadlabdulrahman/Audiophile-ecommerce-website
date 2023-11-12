@@ -1,12 +1,18 @@
 import "../styles/home.css";
-import heroImg from "/assets/home/mobile/image-hero.jpg";
+import { Link } from "react-router-dom";
+
+//Images
+import arrowRight from "/assets/shared/desktop/icon-arrow-right.svg";
+import headPhoneImg from "/assets/shared/desktop/image-headphones.png";
+import speakerImg from "/assets/shared/desktop/image-speakers.png";
+import earphonesImg from "/assets/shared/desktop/image-earphones.png";
 
 function Home() {
   return (
     <div className="home">
-      <div className="home-container">
+      <div className="home-wrapper">
+        <div className="home-container">
           <header className="header">
-            <div className="header-background-img"></div>
             <div className="header-content-container">
               <h3>New Product</h3>
               <h1>XX99 MARK II HEADPHONES</h1>
@@ -17,6 +23,42 @@ function Home() {
               <button>See Product</button>
             </div>
           </header>
+        </div>
+
+        <main className="main">
+          <div className="main-container">
+            <div className="shop-item-container">
+              <img src={headPhoneImg} alt="headphones" />
+              <h3>Headphones</h3>
+              <Link>
+                Shop{" "}
+                <span>
+                  {/*<img src={arrowRight} />*/}
+                </span>
+              </Link>
+            </div>
+            <div className="shop-item-container">
+              <img src={speakerImg} alt="headphones" />
+              <h3>Speakers</h3>
+              <Link>
+                Shop{" "}
+                <span>
+                  {/*<img src={arrowRight} />*/}
+                </span>
+              </Link>
+            </div>
+            <div className="shop-item-container">
+              <img src={earphonesImg} alt="headphones" />
+              <h3>Earphones</h3>
+              <Link>
+                Shop{" "}
+                <span>
+                  {/*<img src={arrowRight} />*/}
+                </span>
+              </Link>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   );

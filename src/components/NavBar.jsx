@@ -1,6 +1,6 @@
-import menuIcon from "../../public/assets/shared/mobile/icon-hamburger.svg";
-import logo from "../../public/assets/shared/desktop/logo.svg";
-import cartIcon from "../../public/assets/shared/desktop/icon-cart.svg";
+import menuIcon from "/assets/shared/mobile/icon-hamburger.svg";
+import logo from "/assets/shared/desktop/logo.svg";
+import cartIcon from "/assets/shared/desktop/icon-cart.svg";
 
 import "../styles/navbar.css";
 

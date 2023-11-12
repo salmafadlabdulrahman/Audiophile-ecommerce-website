@@ -1,0 +1,65 @@
+.home-container {
+  background-color: #191919;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /*height: 500px;*/
+}
+
+.header {
+  position: relative;
+  background-image: url(../../public/assets/home/mobile/image-hero.jpg);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  height: 500px;
+  max-height: 500;
+}
+
+.header-content-container {
+  text-align: center;
+  align-items: center;
+}
+
+.header-content-container h3 {
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  font-size: 0.9em;
+}
+
+.header-content-container h3,
+.header-content-container p {
+  color: #ffffff80;
+}
+
+.header-content-container h1 {
+  color: white;
+  margin-top: 0.4em;
+  line-height: 1.1;
+  font-size: 2.3em;
+  letter-spacing: 1px;
+}
+
+.header-content-container p {
+  font-weight: 400;
+  margin-top: 1.5em;
+  line-height: 1.6;
+}
+
+.header-content-container button {
+  background-color: #d87d41;
+  color: white;
+  border: none;
+  margin-top: 2em;
+  padding: 1em 2em;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+  filter: contrast(0.9);
+  /*margin-bottom: 3em;*/
+}

@@ -81,11 +81,13 @@
     justify-content: center;
     align-items: center;
     background-color: #f1f1f1;
+    margin-top: 5em;
 }
 
 .shop-item-container img{
     /*max-width: 100%;*/
     width: 140px;
     /*max-width: 100%;*/
-    background: white;
+    position: relative;
+    bottom: 50px
 }

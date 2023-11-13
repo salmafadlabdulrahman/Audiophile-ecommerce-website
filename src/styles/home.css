@@ -33,7 +33,11 @@
 .header-content-container h3,
 .header-content-container button,
 .shop-item-container h3,
-.shop-item-container a {
+.shop-item-container a,
+.product-content button,
+.product-display-content button,
+.info,
+.info button {
   text-transform: uppercase;
 }
 
@@ -111,4 +115,110 @@
   gap: 1em;
   position: relative;
   bottom: 25px;
+}
+
+.new-product-container,
+.product-display img,
+.new-product-img img,
+.new-product-info {
+  border-radius: 10px;
+}
+
+.new-product-container {
+  background-color: #d87d4a;
+  background-image: url("/assets/home/desktop/pattern-circles.svg");
+  background-repeat: no-repeat;
+  background-position: 50% -10.125rem;
+  background-size: cover;
+  margin-top: 6em;
+  padding: 1em;
+  margin-bottom: 2em;
+  padding-bottom: 3em;
+}
+
+.product-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+}
+
+.product-content img {
+  width: 170px;
+  margin-top: 2em;
+}
+
+.product-content h2 {
+  font-size: 2.1em;
+  line-height: 1;
+  margin-top: 1.1em;
+  letter-spacing: 3px;
+}
+
+.product-content p {
+  color: #ffffffbf;
+  font-weight: 200;
+  margin-top: 1.1em;
+  line-height: 1.5;
+}
+
+.product-content button {
+  background-color: #191919;
+  border: none;
+  color: white;
+  margin-top: 3em;
+  padding: 1em 2em;
+  letter-spacing: 1.5px;
+  font-weight: 600;
+}
+
+.new-product-details-container {
+  position: relative;
+}
+
+.product-display {
+  position: relative;
+}
+
+.product-display img {
+  width: 100%;
+  height: auto;
+}
+
+.product-display-content {
+  position: absolute;
+  top: 32%;
+  padding-left: 1em;
+}
+
+.product-display-content h2 {
+  font-size: 1.7em;
+}
+
+.product-display-content button,
+.info button {
+  width: 170px;
+  border: 1px solid #191919;
+  background: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  padding: 1em 0;
+  margin-top: 1.7em;
+}
+
+.new-product-info,
+.new-product-img {
+  margin-top: 1.3em;
+}
+
+.new-product-info {
+  background-color: #f1f1f1;
+  padding: 2em 1.5em;
+  font-size: 1.1em;
+}
+
+.new-product-img img {
+  width: 100%;
 }

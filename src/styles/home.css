@@ -120,7 +120,8 @@
 .new-product-container,
 .product-display img,
 .new-product-img img,
-.new-product-info {
+.new-product-info,
+.who-we-are-container img {
   border-radius: 10px;
 }
 
@@ -221,4 +222,35 @@
 
 .new-product-img img {
   width: 100%;
+}
+
+.who-we-are-container {
+  margin-top: 8em;
+}
+
+.who-we-are-container img {
+  width: 100%;
+}
+
+.our-goal-container {
+  text-align: center;
+  margin-top: 1.5em;
+  padding-bottom: 3em;
+}
+
+.our-goal-container h3 {
+  font-size: 1.7em;
+  color: #191919;
+  letter-spacing: 2px;
+}
+
+.our-goal-container h3 span {
+  color: #d87d4a;
+}
+
+.our-goal-container p {
+  margin-top: 1.5em;
+  line-height: 1.5;
+  color: #00000080;
+  font-size: 1em;
 }

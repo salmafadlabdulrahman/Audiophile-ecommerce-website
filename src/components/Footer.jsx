@@ -26,12 +26,16 @@ function Footer() {
           demo facility - we’re open 7 days a week.
         </p>
 
-        <span className="copyrights">Copyright 2021. All Rights Reserved</span>
+        <div className="copyrights-container">
+          <span className="copyrights">
+            Copyright 2021. All Rights Reserved
+          </span>
 
-        <div className="icons">
-          <img src={facebookIcon} alt="facebook icon" />
-          <img src={twitterIcon} alt="twitter icon" />
-          <img src={instagramIcon} alt="instagram icon" />
+          <div className="icons">
+            <img src={facebookIcon} alt="facebook icon" />
+            <img src={twitterIcon} alt="twitter icon" />
+            <img src={instagramIcon} alt="instagram icon" />
+          </div>
         </div>
       </footer>
     </div>

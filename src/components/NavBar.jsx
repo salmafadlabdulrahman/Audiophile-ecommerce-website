@@ -9,9 +9,11 @@ function NavBar() {
     <div className="navbar">
       <div className="navbar-container">
         <nav>
-          <img src={menuIcon} alt="menu icon" />
-          <img src={logo} />
-          <img src={cartIcon} />
+          <div className="menu-logo-container">
+            <img src={menuIcon} alt="menu icon" />
+            <img src={logo} className="logo" />
+          </div>
+          <img src={cartIcon} className="cart-icon" />
         </nav>
       </div>
     </div>
@@ -19,3 +21,7 @@ function NavBar() {
 }
 
 export default NavBar;
+/*<div className="menu-logo-container">
+            <img src={menuIcon} alt="menu icon" />
+            <img src={logo} className="logo" />
+          </div> */

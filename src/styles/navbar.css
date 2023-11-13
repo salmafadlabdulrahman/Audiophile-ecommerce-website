@@ -1,11 +1,28 @@
 nav {
-   display: flex;
-   align-items: center;
-   justify-content: space-between;
-   padding: 2em 1.5em;
-   border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  justify-content: space-between;
+  justify-content: space-between;
+  padding: 2em 1.5em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-logo-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
 }
 
 .navbar {
-    background-color: #191919;
+  background-color: #191919;
+}
+
+.logo {
+  margin: 0 auto;
+}
+
+@media (min-width: 480px) {
+  .logo {
+    margin: 0;
+    padding-left: 2.5em;
+  }
 }

@@ -8,10 +8,17 @@ import speakerImg from "/assets/shared/desktop/image-speakers.png";
 import speakerProductImg from "/assets/home/mobile/image-speaker-zx9.png";
 import earphonesImg from "/assets/shared/desktop/image-earphones.png";
 import speakerImgMobile from "/assets/home/mobile/image-speaker-zx7.jpg";
+import speakerImgTablet from "/assets/home/tablet/image-speaker-zx7.jpg"
 import earphoneImgMobile from "/assets/home/mobile/image-earphones-yx1.jpg";
+import earphoneImgTablet from "/assets/home/tablet/image-earphones-yx1.jpg"
 import bestGearMobile from "/assets/shared/mobile/image-best-gear.jpg";
+import bestGearTablet from "/assets/shared/tablet/image-best-gear.jpg"
+import { useMediaQuery } from "react-responsive";
 
 function Home() {
+  const isMobile = useMediaQuery({
+    query: "(min-width: 100px) and (max-width: 480px)",
+  });
   return (
     <div className="home">
       <div className="home-wrapper">
@@ -31,45 +38,50 @@ function Home() {
 
         <main className="main">
           <div className="main-container">
-            <div className="shop-item-container">
-              <img
-                src={headPhoneImg}
-                alt="headphones"
-                className="product-img"
-              />
-              <h3>Headphones</h3>
-              <Link>
-                Shop{" "}
-                <span>
-                  <img src={arrowRight} />
-                </span>
-              </Link>
+            <div className="home-products-container">
+              <div className="shop-item-container">
+                <img
+                  src={headPhoneImg}
+                  alt="headphones"
+                  className="product-img"
+                />
+                <h3>Headphones</h3>
+                <Link>
+                  Shop{" "}
+                  <span>
+                    <img src={arrowRight} />
+                  </span>
+                </Link>
+              </div>
+              <div className="shop-item-container">
+                <img
+                  src={speakerImg}
+                  alt="headphones"
+                  className="product-img"
+                />
+                <h3>Speakers</h3>
+                <Link>
+                  Shop{" "}
+                  <span>
+                    <img src={arrowRight} />
+                  </span>
+                </Link>
+              </div>
+              <div className="shop-item-container">
+                <img
+                  src={earphonesImg}
+                  alt="headphones"
+                  className="product-img"
+                />
+                <h3>Earphones</h3>
+                <Link>
+                  Shop{" "}
+                  <span>
+                    <img src={arrowRight} />
+                  </span>
+                </Link>
+              </div>
             </div>
-            <div className="shop-item-container">
-              <img src={speakerImg} alt="headphones" className="product-img" />
-              <h3>Speakers</h3>
-              <Link>
-                Shop{" "}
-                <span>
-                  <img src={arrowRight} />
-                </span>
-              </Link>
-            </div>
-            <div className="shop-item-container">
-              <img
-                src={earphonesImg}
-                alt="headphones"
-                className="product-img"
-              />
-              <h3>Earphones</h3>
-              <Link>
-                Shop{" "}
-                <span>
-                  <img src={arrowRight} />
-                </span>
-              </Link>
-            </div>
-
             <div className="thumbnails-container">
               <div className="new-product-container">
                 <div className="product-content">
@@ -88,7 +100,7 @@ function Home() {
 
               <div className="new-product-details-container">
                 <div className="product-display">
-                  <img src={speakerImgMobile} alt="speaker Image" />
+                  <img src={isMobile ? speakerImgMobile : speakerImgTablet} alt="speaker Image" />
                   <div className="product-display-content">
                     <h2>ZX7 SPEAKER</h2>
                     <button>See Product</button>
@@ -98,7 +110,7 @@ function Home() {
 
               <div className="new-item-container">
                 <div className="new-product-img">
-                  <img src={earphoneImgMobile} alt="earphone Image" />
+                  <img src={isMobile ? earphoneImgMobile : earphoneImgTablet} alt="earphone Image" />
                 </div>
 
                 <div className="new-product-info">
@@ -111,7 +123,7 @@ function Home() {
             </div>
 
             <div className="who-we-are-container">
-              <img src={bestGearMobile} alt="a person listening to music" />
+              <img src={isMobile ? bestGearMobile : bestGearTablet} alt="a person listening to music" />
 
               <div className="our-goal-container">
                 <h3>

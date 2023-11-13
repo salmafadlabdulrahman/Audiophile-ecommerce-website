@@ -4,12 +4,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /*height: 500px;*/
 }
 
 .header {
   position: relative;
-  background-image: url(../../public/assets/home/mobile/image-hero.jpg);
+  background-image: url(/assets/home/mobile/image-hero.jpg);
   background-size: cover;
   background-position: center;
   display: flex;
@@ -253,4 +252,63 @@
   line-height: 1.5;
   color: #00000080;
   font-size: 1em;
+}
+
+@media (min-width: 480px) {
+  .header {
+    background-image: url(/assets/home/tablet/image-hero.jpg);
+    height: 550px;
+  }
+
+  .header-content-container h1 {
+    font-size: 3.5em;
+  }
+
+  .home-products-container {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    margin-top: 2em;
+  }
+
+  .product-content h2 {
+    font-size: 4em;
+    margin-top: 0;
+    margin-top: 0.5em;
+  }
+
+  .product-content p {
+    width: 87%;
+  }
+
+  .product-content img {
+    width: 200px;
+    margin-top: 2em;
+  }
+
+  .main-container {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 2em;
+  }
+
+  .product-display-content {
+    top: 30%;
+    left: 20px;
+  }
+
+  .new-item-container {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+  }
+
+  .new-product-img {
+    margin-top: 0;
+    margin-top: 1.7em;
+  }
+
+  .our-goal-container h3 {
+    font-size: 2.6em;
+  }
 }

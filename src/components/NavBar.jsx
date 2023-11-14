@@ -21,7 +21,3 @@ function NavBar() {
 }
 
 export default NavBar;
-/*<div className="menu-logo-container">
-            <img src={menuIcon} alt="menu icon" />
-            <img src={logo} className="logo" />
-          </div> */

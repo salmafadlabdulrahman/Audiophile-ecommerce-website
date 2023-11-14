@@ -8,7 +8,7 @@
 
 .header {
   position: relative;
-  background-image: url(/assets/home/mobile/image-hero.jpg);
+  background-image: url(/assets/home/mobile/image-hero.png);
   background-size: cover;
   background-position: bottom;
   display: flex;
@@ -265,7 +265,8 @@
 
 @media (min-width: 480px) {
   .header {
-    background-image: url(/assets/home/tablet/image-hero.jpg);
+    background-image: url(/assets/home/tablet/image-hero.png);
+    /*background-image: url(/assets/home/tablet/image-hero-removebg-preview.png);*/
     height: 550px;
   }
 
@@ -331,19 +332,37 @@
   }
 }
 
-
-@media (min-width: 990px) {
+@media (min-width: 990px) and (max-width: 1200px) {
   .header {
     background-image: url(/assets/home/desktop/image-hero.jpg);
-    background-position: bottom;
+    background-position: top;
     min-width: 100%;
     justify-content: start;
+    height: 100%;
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    min-width: 80%;
+  }
+}
+
+@media (min-width: 990px) {
+  .home-container {
     height: 620px;
+  }
+
+  .header {
+    background-image: url(/assets/home/desktop/image-hero.jpg);
+    background-position: top;
+    justify-content: start;
+    height: 100%;
   }
 
   .header-content-container {
     text-align: left;
-    width: 50%;
+    width: 45%;
     padding-left: 2em;
   }
 }

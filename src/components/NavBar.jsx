@@ -7,22 +7,32 @@ import ProductsCategories from "./ProductsCategories";
 import "../styles/navbar.css";
 import { useContext } from "react";
 import { AppContext } from "./MainLayout";
+import { Link } from "react-router-dom";
+import { useMediaQuery } from "react-responsive";
 
 function NavBar() {
   const { openMenu, setOpenMenu } = useContext(AppContext);
-
+  const isDesktop = useMediaQuery({
+    query: "(min-width: 990px)",
+  });
   return (
     <>
       <div className="navbar">
         <div className="navbar-container">
           <nav>
             <div className="menu-logo-container">
-              <img
-                src={!openMenu ? menuIcon : closeMenuIcon}
-                alt="menu icon"
-                onClick={() => setOpenMenu((prev) => !prev)}
-              />
-              <img src={logo} className="logo" />
+              {!isDesktop ? (
+                <img
+                  src={!openMenu ? menuIcon : closeMenuIcon}
+                  alt="menu icon"
+                  onClick={() => setOpenMenu((prev) => !prev)}
+                />
+              ) : (
+                ""
+              )}
+              <Link to={"/"} className="logo-link">
+                <img src={logo} className="logo" />
+              </Link>
             </div>
             <img src={cartIcon} className="cart-icon" />
           </nav>
@@ -39,13 +49,9 @@ function NavBar() {
           )}
         </div>
       </div>
-
-      
     </>
   );
 }
 
 export default NavBar;
-/*{openMenu && (
-        <div className="overlay" onClick={() => setOpenMenu(false)}></div>
-      )} */
+//query: "(min-width: 480px) and (max-width: 990px)",

@@ -7,11 +7,12 @@ import ProductsCategories from "./ProductsCategories";
 import "../styles/navbar.css";
 import { useContext } from "react";
 import { AppContext } from "./MainLayout";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 function NavBar() {
   const { openMenu, setOpenMenu } = useContext(AppContext);
+
   const isDesktop = useMediaQuery({
     query: "(min-width: 990px)",
   });
@@ -33,7 +34,28 @@ function NavBar() {
               <Link to={"/"} className="logo-link">
                 <img src={logo} className="logo" />
               </Link>
+              {isDesktop ? (
+                <div className="navigation-container">
+                  <ul>
+                    <NavLink to={"/"}>
+                      <li>Home</li>
+                    </NavLink>
+                    <NavLink to={"headphones"}>
+                      <li>Headphones</li>
+                    </NavLink>
+                    <NavLink to={"speakers"}>
+                      <li>Speakers</li>
+                    </NavLink>
+                    <NavLink to={"earphones"}>
+                      <li>Earphones</li>
+                    </NavLink>
+                  </ul>
+                </div>
+              ) : (
+                ""
+              )}
             </div>
+
             <img src={cartIcon} className="cart-icon" />
           </nav>
 

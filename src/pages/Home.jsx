@@ -3,18 +3,21 @@ import "../styles/home.css";
 //Images
 import speakerProductImg from "/assets/home/mobile/image-speaker-zx9.png";
 import speakerImgMobile from "/assets/home/mobile/image-speaker-zx7.jpg";
-import speakerImgTablet from "/assets/home/tablet/image-speaker-zx7.jpg"
+import speakerImgTablet from "/assets/home/tablet/image-speaker-zx7.jpg";
 import earphoneImgMobile from "/assets/home/mobile/image-earphones-yx1.jpg";
-import earphoneImgTablet from "/assets/home/tablet/image-earphones-yx1.jpg"
+import earphoneImgTablet from "/assets/home/tablet/image-earphones-yx1.jpg";
 import bestGearMobile from "/assets/shared/mobile/image-best-gear.jpg";
-import bestGearTablet from "/assets/shared/tablet/image-best-gear.jpg"
+import bestGearTablet from "/assets/shared/tablet/image-best-gear.jpg";
 import { useMediaQuery } from "react-responsive";
 import ProductsCategories from "../components/ProductsCategories";
 
 function Home() {
-  
   const isMobile = useMediaQuery({
     query: "(min-width: 100px) and (max-width: 480px)",
+  });
+
+  const isDesktop = useMediaQuery({
+    query: "(min-width: 990px)",
   });
 
   return (
@@ -37,7 +40,7 @@ function Home() {
         <main className="main">
           <div className="main-container">
             <ProductsCategories />
-            
+
             <div className="thumbnails-container">
               <div className="new-product-container">
                 <div className="product-content">
@@ -56,7 +59,10 @@ function Home() {
 
               <div className="new-product-details-container">
                 <div className="product-display">
-                  <img src={isMobile ? speakerImgMobile : speakerImgTablet} alt="speaker Image" />
+                  <img
+                    src={isMobile ? speakerImgMobile : speakerImgTablet}
+                    alt="speaker Image"
+                  />
                   <div className="product-display-content">
                     <h2>ZX7 SPEAKER</h2>
                     <button>See Product</button>
@@ -66,7 +72,10 @@ function Home() {
 
               <div className="new-item-container">
                 <div className="new-product-img">
-                  <img src={isMobile ? earphoneImgMobile : earphoneImgTablet} alt="earphone Image" />
+                  <img
+                    src={isMobile ? earphoneImgMobile : earphoneImgTablet}
+                    alt="earphone Image"
+                  />
                 </div>
 
                 <div className="new-product-info">
@@ -79,7 +88,10 @@ function Home() {
             </div>
 
             <div className="who-we-are-container">
-              <img src={isMobile ? bestGearMobile : bestGearTablet} alt="a person listening to music" />
+              <img
+                src={isMobile ? bestGearMobile : bestGearTablet}
+                alt="a person listening to music"
+              />
 
               <div className="our-goal-container">
                 <h3>

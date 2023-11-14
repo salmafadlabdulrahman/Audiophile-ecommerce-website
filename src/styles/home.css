@@ -263,10 +263,15 @@
   font-size: 1em;
 }
 
+.active {
+  color: #d87d41;
+}
+
+
+/*Tablet Design*/
 @media (min-width: 480px) {
   .header {
     background-image: url(/assets/home/tablet/image-hero.png);
-    /*background-image: url(/assets/home/tablet/image-hero-removebg-preview.png);*/
     height: 550px;
   }
 
@@ -332,6 +337,7 @@
   }
 }
 
+
 @media (min-width: 990px) and (max-width: 1200px) {
   .header {
     background-image: url(/assets/home/desktop/image-hero.jpg);
@@ -342,9 +348,15 @@
   }
 }
 
+
+/*Desktop Design*/
 @media (min-width: 1200px) {
   .header {
     min-width: 80%;
+  }
+
+  .main-container {
+    width: 75%;
   }
 }
 

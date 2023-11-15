@@ -1,15 +1,22 @@
 import "../styles/headphones.css";
 
 import Allproducts from "../../products.json";
-//console.log(Allproducts.products)
-
-//products.map(product => console.log(product))
+import { useMediaQuery } from "react-responsive";
+import ProductsCategories from "../components/ProductsCategories";
 
 const headphones = Allproducts.products.filter((product) =>
   product.slug.includes("headphones")
 );
 
 function HeadPhones() {
+  const isMobile = useMediaQuery({
+    query: "(min-width: 100px) and (max-width: 480px)",
+  });
+
+  const isTablet = useMediaQuery({
+    query: "(min-width: 481px) and (max-width: 989px)",
+  });
+
   return (
     <div className="headphone">
       <div className="headphones-wrapper">
@@ -21,7 +28,15 @@ function HeadPhones() {
           <div className="product-container">
             {headphones.map((headphone, index) => (
               <div className="product" key={index}>
-                <img src={headphone.categoryImage.mobile} />
+                <img
+                  src={
+                    isMobile
+                      ? headphone.categoryImage.mobile
+                      : isTablet
+                      ? headphone.categoryImage.tablet
+                      : headphone.categoryImage.desktop
+                  }
+                />
                 <h4>New Product</h4>
                 <h3>{headphone.name}</h3>
                 <p>{headphone.description}</p>
@@ -29,6 +44,10 @@ function HeadPhones() {
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="categoreies-container">
+          <ProductsCategories />
         </div>
       </div>
     </div>

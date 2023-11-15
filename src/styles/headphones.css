@@ -70,3 +70,24 @@
   filter: contrast(0.9);
   font-weight: 600;
 }
+
+.categoreies-container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+@media (min-width: 480px) {
+  .product h3 {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 0.5em;
+  }
+
+  .product p {
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 1.5em;
+  }
+
+
+}

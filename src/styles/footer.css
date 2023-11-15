@@ -86,6 +86,13 @@ footer p {
   .icons {
     margin-top: 2em;
   }
+
+  .who-we-are-container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 7em;
+    margin-bottom: 3em;
+  }
 }
 
 @media (min-width: 990px) {

@@ -87,3 +87,19 @@ footer p {
     margin-top: 2em;
   }
 }
+
+@media (min-width: 990px) {
+  footer {
+    padding-right: 2em;
+  }
+
+  .footer-nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  footer p {
+    width: 60%;
+  }
+}

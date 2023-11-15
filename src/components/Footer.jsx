@@ -10,14 +10,16 @@ function Footer() {
     <div className="footer-wrapper">
       <footer>
         <span className="line"></span>
-        <img src={logo} className="footer-logo" />
+        <div className="footer-nav-container">
+          <img src={logo} className="footer-logo" />
 
-        <ul className="footer-nav">
-          <li>home</li>
-          <li>headphones</li>
-          <li>speakers</li>
-          <li>earphones</li>
-        </ul>
+          <ul className="footer-nav">
+            <li>home</li>
+            <li>headphones</li>
+            <li>speakers</li>
+            <li>earphones</li>
+          </ul>
+        </div>
 
         <p>
           Audiophile is an all in one stop to fulfill your audio needs. We're a

@@ -267,6 +267,9 @@
   color: #d87d41;
 }
 
+.shop-link:hover {
+  color: #d87d41;
+}
 
 /*Tablet Design*/
 @media (min-width: 480px) {
@@ -337,7 +340,6 @@
   }
 }
 
-
 @media (min-width: 990px) and (max-width: 1200px) {
   .header {
     background-image: url(/assets/home/desktop/image-hero.jpg);
@@ -347,7 +349,6 @@
     height: 100%;
   }
 }
-
 
 /*Desktop Design*/
 @media (min-width: 1200px) {
@@ -376,5 +377,59 @@
     text-align: left;
     width: 45%;
     padding-left: 2em;
+  }
+
+  .shop-item-container h3 {
+    font-size: 1.1em;
+  }
+
+  .new-product-container {
+    padding: 2em;
+    overflow: hidden;
+  }
+
+  .product-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .product-content img {
+    width: 400px;
+    margin-top: 0;
+    top: 42px;
+    left: 40px;
+    position: relative;
+  }
+
+  .product-content-details {
+    text-align: left;
+    width: 40%;
+  }
+
+  .product-content-details h2 {
+    margin-top: 0;
+  }
+
+  .info {
+    position: relative;
+    left: 40px;
+  }
+
+  .who-we-are-container {
+    display: flex;
+    gap: 3em;
+    margin-bottom: 3em;
+  }
+
+  .who-we-are-container img {
+    order: 2;
+    width: 50%;
+  }
+
+  .our-goal-container {
+    order: 1;
+    text-align: left;
+    align-self: center;
   }
 }

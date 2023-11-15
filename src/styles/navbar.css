@@ -51,6 +51,10 @@ a {
   color: white;
 }
 
+.cart-icon {
+  cursor: pointer;
+}
+
 @media (min-width: 480px) {
   .logo-link {
     margin: 0;

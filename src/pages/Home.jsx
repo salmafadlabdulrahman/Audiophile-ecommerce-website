@@ -4,10 +4,12 @@ import "../styles/home.css";
 import speakerProductImg from "/assets/home/mobile/image-speaker-zx9.png";
 import speakerImgMobile from "/assets/home/mobile/image-speaker-zx7.jpg";
 import speakerImgTablet from "/assets/home/tablet/image-speaker-zx7.jpg";
+import speakerImgDesktop from "/assets/home/desktop/image-speaker-zx7.jpg";
 import earphoneImgMobile from "/assets/home/mobile/image-earphones-yx1.jpg";
 import earphoneImgTablet from "/assets/home/tablet/image-earphones-yx1.jpg";
 import bestGearMobile from "/assets/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/assets/shared/tablet/image-best-gear.jpg";
+import bestGearDesktop from "/assets/shared/desktop/image-best-gear.jpg"
 import { useMediaQuery } from "react-responsive";
 import ProductsCategories from "../components/ProductsCategories";
 
@@ -15,6 +17,8 @@ function Home() {
   const isMobile = useMediaQuery({
     query: "(min-width: 100px) and (max-width: 480px)",
   });
+
+  const isTablet = useMediaQuery({query: "(min-width: 481px) and (max-width: 989px)"})
 
   const isDesktop = useMediaQuery({
     query: "(min-width: 990px)",
@@ -45,22 +49,24 @@ function Home() {
               <div className="new-product-container">
                 <div className="product-content">
                   <img src={speakerProductImg} alt="speaker Image" />
-                  <h2>
-                    ZX9 <br />
-                    SPEAKER
-                  </h2>
-                  <p>
-                    Upgrade to premium speakers that are phenomenally built to
-                    deliver truly remarkable sound.
-                  </p>
-                  <button>See Product</button>
+                  <div className="product-content-details">
+                    <h2>
+                      ZX9 <br />
+                      SPEAKER
+                    </h2>
+                    <p>
+                      Upgrade to premium speakers that are phenomenally built to
+                      deliver truly remarkable sound.
+                    </p>
+                    <button>See Product</button>
+                  </div>
                 </div>
               </div>
 
               <div className="new-product-details-container">
                 <div className="product-display">
                   <img
-                    src={isMobile ? speakerImgMobile : speakerImgTablet}
+                    src={isMobile ? speakerImgMobile : isTablet ? speakerImgTablet : speakerImgDesktop}
                     alt="speaker Image"
                   />
                   <div className="product-display-content">
@@ -73,7 +79,7 @@ function Home() {
               <div className="new-item-container">
                 <div className="new-product-img">
                   <img
-                    src={isMobile ? earphoneImgMobile : earphoneImgTablet}
+                    src={isTablet ? earphoneImgTablet : earphoneImgMobile}
                     alt="earphone Image"
                   />
                 </div>
@@ -89,7 +95,7 @@ function Home() {
 
             <div className="who-we-are-container">
               <img
-                src={isMobile ? bestGearMobile : bestGearTablet}
+                src={isMobile ? bestGearMobile : isTablet ? bestGearTablet : bestGearDesktop}
                 alt="a person listening to music"
               />
 

@@ -17,7 +17,7 @@ function ProductsCategories() {
       <div className="shop-item-container">
         <img src={headPhoneImg} alt="headphones" className="product-img" />
         <h3>Headphones</h3>
-        <Link to={"/headphones"} onClick={() => setOpenMenu(false)}>
+        <Link to={"/headphones"} onClick={() => setOpenMenu(false)} className="shop-link">
           Shop{" "}
           <span>
             <img src={arrowRight} />
@@ -27,7 +27,7 @@ function ProductsCategories() {
       <div className="shop-item-container">
         <img src={speakerImg} alt="headphones" className="product-img" />
         <h3>Speakers</h3>
-        <Link to={"/speakers"} onClick={() => setOpenMenu(false)}>
+        <Link to={"/speakers"} onClick={() => setOpenMenu(false)} className="shop-link">
           Shop{" "}
           <span>
             <img src={arrowRight} />
@@ -37,7 +37,7 @@ function ProductsCategories() {
       <div className="shop-item-container">
         <img src={earphonesImg} alt="headphones" className="product-img" />
         <h3>Earphones</h3>
-        <Link to={"/earphones"} onClick={() => setOpenMenu(false)}>
+        <Link to={"/earphones"} onClick={() => setOpenMenu(false)} className="shop-link">
           Shop{" "}
           <span>
             <img src={arrowRight} />

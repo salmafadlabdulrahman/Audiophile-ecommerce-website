@@ -36,11 +36,15 @@ function HeadPhones() {
                       ? headphone.categoryImage.tablet
                       : headphone.categoryImage.desktop
                   }
+
+                  style={{order: index % 2 === 0 ? 1 : 2}}
                 />
-                <h4>New Product</h4>
-                <h3>{headphone.name}</h3>
-                <p>{headphone.description}</p>
-                <button>see product</button>
+                <div className="product-details" style={{order: index % 2 === 0 ? 2 : 1, paddingLeft: index % 2 === 0 ? "5em" : "0em"}}>
+                  <h4>New Product</h4>
+                  <h3>{headphone.name}</h3>
+                  <p>{headphone.description}</p>
+                  <button>see product</button>
+                </div>
               </div>
             ))}
           </div>

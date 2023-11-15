@@ -68,6 +68,10 @@ footer p {
     flex-direction: row;
   }
 
+  .footer-nav li {
+    cursor: pointer;
+  }
+
   footer .line {
     margin: 0;
   }
@@ -108,5 +112,9 @@ footer p {
 
   footer p {
     width: 60%;
+  }
+
+  .who-we-are-container {
+    width: 70%;
   }
 }

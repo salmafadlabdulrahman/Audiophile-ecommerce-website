@@ -88,6 +88,37 @@
     margin: 0 auto;
     margin-top: 1.5em;
   }
+}
 
+@media (min-width: 990px) {
+  .product {
+    display: flex;
+  }
 
+  .product img {
+    width: 50%;
+  }
+
+  .product-details h3,  .product-details p{
+    margin: 0;
+    margin-top: .6em;
+  }
+
+  .product-details p {
+    margin-top: 1.1em;
+  }
+
+  .product-details {
+    align-self: center;
+    text-align: left;
+    margin: 0;
+  }
+
+  .category-products-container {
+    width: 70%;
+  }
+
+  .categoreies-container {
+    width: 70%;
+  }
 }

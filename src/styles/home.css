@@ -263,12 +263,12 @@
   font-size: 1em;
 }
 
-.active {
+.navigation-container ul .active, .shop-link:hover {
   color: #d87d41;
 }
 
-.shop-link:hover {
-  color: #d87d41;
+button {
+  cursor: pointer;
 }
 
 /*Tablet Design*/

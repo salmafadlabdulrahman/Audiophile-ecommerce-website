@@ -1,5 +1,5 @@
 import "../styles/footer.css";
-import "../styles/home.css"
+import "../styles/home.css";
 
 import logo from "/assets/shared/desktop/logo.svg";
 import facebookIcon from "/assets/shared/desktop/icon-facebook.svg";
@@ -10,6 +10,7 @@ import bestGearMobile from "/assets/shared/mobile/image-best-gear.jpg";
 import bestGearTablet from "/assets/shared/tablet/image-best-gear.jpg";
 import bestGearDesktop from "/assets/shared/desktop/image-best-gear.jpg";
 import { useMediaQuery } from "react-responsive";
+import { NavLink } from "react-router-dom";
 
 function Footer() {
   const isMobile = useMediaQuery({
@@ -55,10 +56,18 @@ function Footer() {
             <img src={logo} className="footer-logo" />
 
             <ul className="footer-nav">
-              <li>home</li>
-              <li>headphones</li>
-              <li>speakers</li>
-              <li>earphones</li>
+              <NavLink to={"/"}>
+                <li>Home</li>
+              </NavLink>
+              <NavLink to={"headphones"}>
+                <li>Headphones</li>
+              </NavLink>
+              <NavLink to={"speakers"}>
+                <li>Speakers</li>
+              </NavLink>
+              <NavLink to={"earphones"}>
+                <li>Earphones</li>
+              </NavLink>
             </ul>
           </div>
 

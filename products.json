@@ -96,16 +96,16 @@
       "name": "XX99 Mark I Headphones",
       "shortName": "XX99 MK I",
       "image": {
-        "mobile": "/images/product-xx99-mark-one-headphones/mobile/image-product.jpg",
-        "tablet": "/images/product-xx99-mark-one-headphones/tablet/image-product.jpg",
-        "desktop": "/images/product-xx99-mark-one-headphones/desktop/image-product.jpg"
+        "mobile": "/assets/product-xx99-mark-one-headphones/mobile/image-product.jpg",
+        "tablet": "/assets/product-xx99-mark-one-headphones/tablet/image-product.jpg",
+        "desktop": "/assets/product-xx99-mark-one-headphones/desktop/image-product.jpg"
       },
       "cartImage": "/images/cart/image-xx99-mark-one-headphones.jpg",
       "category": "headphones",
       "categoryImage": {
-        "mobile": "/images/category-headphones/mobile/image-xx99-mark-one.jpg",
-        "tablet": "/images/category-headphones/tablet/image-xx99-mark-one.jpg",
-        "desktop": "/images/category-headphones/desktop/image-xx99-mark-one.jpg"
+        "mobile": "/assets/category-headphones/mobile/image-xx99-mark-one.jpg",
+        "tablet": "/assets/category-headphones/tablet/image-xx99-mark-one.jpg",
+        "desktop": "/assets/category-headphones/desktop/image-xx99-mark-one.jpg"
       },
       "new": false,
       "price": 1750,
@@ -189,9 +189,9 @@
       "cartImage": "/images/cart/image-xx59-headphones.jpg",
       "category": "headphones",
       "categoryImage": {
-        "mobile": "/images/category-headphones/mobile/image-xx59.jpg",
-        "tablet": "/images/category-headphones/tablet/image-xx59.jpg",
-        "desktop": "/images/category-headphones/desktop/image-xx59.jpg"
+        "mobile": "/assets/category-headphones/mobile/image-xx59.jpg",
+        "tablet": "/assets/category-headphones/tablet/image-xx59.jpg",
+        "desktop": "/assets/category-headphones/desktop/image-xx59.jpg"
       },
       "new": false,
       "price": 899,
@@ -275,9 +275,9 @@
       "cartImage": "/images/cart/image-xx99-mark-two-headphones.jpg",
       "category": "headphones",
       "categoryImage": {
-        "mobile": "/images/category-headphones/mobile/image-xx99-mark-two.jpg",
-        "tablet": "/images/category-headphones/tablet/image-xx99-mark-two.jpg",
-        "desktop": "/images/category-headphones/desktop/image-xx99-mark-two.jpg"
+        "mobile": "/assets/category-headphones/mobile/image-xx99-mark-two.jpg",
+        "tablet": "/assets/category-headphones/tablet/image-xx99-mark-two.jpg",
+        "desktop": "/assets/category-headphones/desktop/image-xx99-mark-two.jpg"
       },
       "new": true,
       "price": 2999,

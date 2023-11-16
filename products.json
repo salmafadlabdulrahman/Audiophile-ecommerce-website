@@ -13,9 +13,9 @@
       "cartImage": "/images/cart/image-yx1-earphones.jpg",
       "category": "earphones",
       "categoryImage": {
-        "mobile": "/images/category-earphones/mobile/image-yx1-earphones.jpg",
-        "tablet": "/images/category-earphones/tablet/image-yx1-earphones.jpg",
-        "desktop": "/images/category-earphones/desktop/image-yx1-earphones.jpg"
+        "mobile": "/assets/category-earphones/mobile/image-yx1-earphones.jpg",
+        "tablet": "/assets/category-earphones/tablet/image-yx1-earphones.jpg",
+        "desktop": "/assets/category-earphones/desktop/image-yx1-earphones.jpg"
       },
       "new": true,
       "price": 599,

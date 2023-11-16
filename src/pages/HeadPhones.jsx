@@ -17,6 +17,10 @@ function HeadPhones() {
     query: "(min-width: 481px) and (max-width: 989px)",
   });
 
+  const isDesktop = useMediaQuery({
+    query: "(min-width: 990px)",
+  });
+
   return (
     <div className="headphone">
       <div className="headphones-wrapper">
@@ -36,10 +40,22 @@ function HeadPhones() {
                       ? headphone.categoryImage.tablet
                       : headphone.categoryImage.desktop
                   }
-
-                  style={{order: index % 2 === 0 ? 1 : 2}}
+                  style={{
+                    order: isDesktop ? (index % 2 === 0 ? 1 : 2) : "",
+                  }}
                 />
-                <div className="product-details" style={{order: index % 2 === 0 ? 2 : 1, paddingLeft: index % 2 === 0 ? "5em" : "0em"}}>
+
+                <div
+                  className="product-details"
+                  style={{
+                    order: isDesktop ? (index % 2 === 0 ? 2 : 1) : "",
+                    paddingLeft: isDesktop
+                      ? index % 2 === 0
+                        ? "5em"
+                        : "0em"
+                      : "",
+                  }}
+                >
                   <h4>New Product</h4>
                   <h3>{headphone.name}</h3>
                   <p>{headphone.description}</p>

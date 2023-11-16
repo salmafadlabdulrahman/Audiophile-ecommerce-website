@@ -365,9 +365,9 @@
       "cartImage": "/images/cart/image-zx7-speaker.jpg",
       "category": "speakers",
       "categoryImage": {
-        "mobile": "/images/category-speakers/mobile/image-zx7.jpg",
-        "tablet": "/images/category-speakers/tablet/image-zx7.jpg",
-        "desktop": "/images/category-speakers/desktop/image-zx7.jpg"
+        "mobile": "/assets/category-speakers/mobile/image-zx7.jpg",
+        "tablet": "/assets/category-speakers/tablet/image-zx7.jpg",
+        "desktop": "/assets/category-speakers/desktop/image-zx7.jpg"
       },
       "new": false,
       "price": 3500,
@@ -455,9 +455,9 @@
       "cartImage": "/images/cart/image-zx9-speaker.jpg",
       "category": "speakers",
       "categoryImage": {
-        "mobile": "/images/category-speakers/mobile/image-zx9.jpg",
-        "tablet": "/images/category-speakers/tablet/image-zx9.jpg",
-        "desktop": "/images/category-speakers/desktop/image-zx9.jpg"
+        "mobile": "/assets/category-speakers/mobile/image-zx9.jpg",
+        "tablet": "/assets/category-speakers/tablet/image-zx9.jpg",
+        "desktop": "/assets/category-speakers/desktop/image-zx9.jpg"
       },
       "new": true,
       "price": 4500,

@@ -93,15 +93,18 @@
 @media (min-width: 990px) {
   .product {
     display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .product img {
     width: 50%;
   }
 
-  .product-details h3,  .product-details p{
+  .product-details h3,
+  .product-details p {
     margin: 0;
-    margin-top: .6em;
+    margin-top: 0.6em;
   }
 
   .product-details p {
@@ -120,5 +123,15 @@
 
   .categoreies-container {
     width: 70%;
+  }
+}
+
+@media (min-width: 990px) and (max-width: 1200px) {
+  .category-products-container {
+    width: 90%;
+  }
+
+  .categoreies-container {
+    width: 90%;
   }
 }

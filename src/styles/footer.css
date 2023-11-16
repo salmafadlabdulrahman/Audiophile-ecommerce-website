@@ -115,6 +115,7 @@ footer p {
   }
 
   .who-we-are-container {
-    width: 70%;
+    width: 80%;
+    align-items: center;
   }
 }

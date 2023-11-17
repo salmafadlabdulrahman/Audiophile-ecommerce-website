@@ -1,0 +1,148 @@
+.current-product-container {
+  min-height: 100vh;
+}
+
+.product-wrapper {
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 1.5em;
+}
+
+.product-wrapper .get-back button {
+  background: none;
+  border: none;
+  color: #00000080;
+  text-transform: capitalize;
+  font-weight: 300;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.product-details-container {
+  margin-top: 1em;
+}
+
+.product {
+  text-align: left;
+}
+
+.product h5 {
+  font-size: 1.2em;
+  color: #191919;
+  margin-top: 1em;
+}
+
+.product img {
+  width: 100%;
+}
+
+.counter-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 3em;
+}
+
+.counter {
+  background-color: #f1f1f1;
+  width: 125px;
+  padding: 0.8em 0.9em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.decrement-btn,
+.increment-btn {
+  cursor: pointer;
+}
+
+.counter-wrapper button {
+  margin-top: 0;
+  height: 47px;
+}
+
+.features-container {
+  margin-top: 4em;
+  text-align: left;
+}
+
+.features-container h3 {
+  font-size: 1.5em;
+  letter-spacing: 0;
+}
+
+.in-the-box-container {
+  margin-top: 4em;
+}
+
+.in-the-box-container h3 {
+  font-size: 1.3em;
+}
+
+.items {
+  margin-top: 1em;
+}
+
+.items h2 {
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-weight: 300;
+  color: #00000080;
+  margin-bottom: 0.5em;
+}
+
+.items h2 span {
+    color: #d87d4a;
+    font-size: 0.9em;
+    font-weight: 700;
+}
+
+.gallery-images-container {
+    margin-top: 7em;
+}
+
+.gallery-images-container img {
+    margin-bottom: 1em;
+}
+
+.other-products-container h3 {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.new-item-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 4em;
+}
+
+.new-item-container img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.new-item-container h3 {
+    margin-top: 1.2em;
+}
+
+.new-item-container button {
+    background: #d87d4a;
+    color: white;
+    border: none;
+    padding: 1em 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    width: 160px;
+    margin-top: 2em;
+    align-self: center;
+    cursor: pointer;
+}
+
+.categoreies-container {
+    margin-top: 10em;
+}

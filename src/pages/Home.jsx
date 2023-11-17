@@ -9,6 +9,7 @@ import earphoneImgMobile from "/assets/home/mobile/image-earphones-yx1.jpg";
 import earphoneImgTablet from "/assets/home/tablet/image-earphones-yx1.jpg";
 
 import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
 import ProductsCategories from "../components/ProductsCategories";
 
 function Home() {
@@ -16,10 +17,8 @@ function Home() {
     query: "(min-width: 100px) and (max-width: 480px)",
   });
 
-  const isTablet = useMediaQuery({query: "(min-width: 481px) and (max-width: 989px)"})
-
-  const isDesktop = useMediaQuery({
-    query: "(min-width: 990px)",
+  const isTablet = useMediaQuery({
+    query: "(min-width: 481px) and (max-width: 989px)",
   });
 
   return (
@@ -34,7 +33,9 @@ function Home() {
                 Experience natural, lifelike audio and exceptional build quality
                 made for the passionate music enthusiast.
               </p>
-              <button>See Product</button>
+              <Link to={`/headphones/xx99-mark-two-headphones`}>
+                <button>See Product</button>
+              </Link>
             </div>
           </header>
         </div>
@@ -56,7 +57,9 @@ function Home() {
                       Upgrade to premium speakers that are phenomenally built to
                       deliver truly remarkable sound.
                     </p>
-                    <button>See Product</button>
+                    <Link to={`/speakers/zx9-speaker`}>
+                      <button>See Product</button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -64,12 +67,20 @@ function Home() {
               <div className="new-product-details-container">
                 <div className="product-display">
                   <img
-                    src={isMobile ? speakerImgMobile : isTablet ? speakerImgTablet : speakerImgDesktop}
+                    src={
+                      isMobile
+                        ? speakerImgMobile
+                        : isTablet
+                        ? speakerImgTablet
+                        : speakerImgDesktop
+                    }
                     alt="speaker Image"
                   />
                   <div className="product-display-content">
                     <h2>ZX7 SPEAKER</h2>
-                    <button>See Product</button>
+                    <Link to={`/speakers/zx7-speaker`}>
+                      <button>See Product</button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -85,13 +96,13 @@ function Home() {
                 <div className="new-product-info">
                   <div className="info">
                     <h2>Yx1 earphones</h2>
-                    <button>See Product</button>
+                    <Link to={`/earphones/yx1-earphones`}>
+                      <button>See Product</button>
+                    </Link>
                   </div>
                 </div>
               </div>
             </div>
-
-            
           </div>
         </main>
       </div>

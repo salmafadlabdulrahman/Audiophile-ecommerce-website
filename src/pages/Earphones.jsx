@@ -1,5 +1,4 @@
 import "../styles/earphones.css";
-import ProductsCategories from "../components/ProductsCategories";
 import Allproducts from "../../products.json";
 import { useMediaQuery } from "react-responsive";
 
@@ -63,10 +62,6 @@ function Earphones() {
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="categoreies-container">
-          <ProductsCategories />
         </div>
       </div>
     </div>

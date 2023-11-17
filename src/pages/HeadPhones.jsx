@@ -2,7 +2,7 @@ import "../styles/headphones.css";
 
 import Allproducts from "../../products.json";
 import { useMediaQuery } from "react-responsive";
-import ProductsCategories from "../components/ProductsCategories";
+import { Link } from "react-router-dom";
 
 const headphones = Allproducts.products.filter((product) =>
   product.slug.includes("headphones")
@@ -59,15 +59,13 @@ function HeadPhones() {
                   <h4>New Product</h4>
                   <h3>{headphone.name}</h3>
                   <p>{headphone.description}</p>
-                  <button>see product</button>
+                  <Link to={`${headphone.slug}`}>
+                    <button>see product</button>
+                  </Link>
                 </div>
               </div>
             ))}
           </div>
-        </div>
-
-        <div className="categoreies-container">
-          <ProductsCategories />
         </div>
       </div>
     </div>

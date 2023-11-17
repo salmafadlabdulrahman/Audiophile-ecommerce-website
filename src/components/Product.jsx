@@ -2,15 +2,17 @@ import { useParams, Link } from "react-router-dom";
 import Allproducts from "../../products.json";
 import "../styles/product.css";
 import { useMediaQuery } from "react-responsive";
+import { useState } from "react";
 
 function Product() {
+  const [quantity, setQuntity] = useState(1);
   const params = useParams();
   const isMobile = useMediaQuery({
     query: "(min-width: 100px) and (max-width: 480px)",
   });
 
   const isTablet = useMediaQuery({
-    query: "(min-width: 481px) and (max-width: 989px)",
+    query: "(min-width: 500px) and (max-width: 989px)",
   });
 
   const currentProduct = Allproducts.products.filter(
@@ -18,7 +20,14 @@ function Product() {
   )[0];
 
   const formattedPrice = currentProduct.price.toLocaleString();
-  //const paragraphs = currentProduct.description.split('\n');
+
+  const incrementQuantity = () => {
+    setQuntity((prev) => prev + 1);
+  };
+
+  const decrementQuantity = () => {
+    setQuntity((prev) => prev - 1);
+  };
 
   return (
     <div className="current-product-container">
@@ -28,62 +37,83 @@ function Product() {
         </Link>
 
         <div className="product-details-container">
-          <div className="product">
+          <div className="product-main-info">
             <img
               src={
                 isMobile
-                  ? currentProduct.categoryImage.mobile
+                  ? currentProduct.image.mobile
                   : isTablet
-                  ? currentProduct.categoryImage.tablet
-                  : currentProduct.categoryImage.desktop
+                  ? currentProduct.image.tablet
+                  : currentProduct.image.desktop
               }
               alt="earphones"
             />
-            {currentProduct.new ? <h4>New Product</h4> : ""}
-            <h3>{currentProduct.name}</h3>
-            <p>{currentProduct.description}</p>
-            <h5>$ {formattedPrice}</h5>
-            <div className="counter-wrapper">
-              <div className="counter">
-                <span className="decrement-btn">-</span>
-                <span>1</span>
-                <span className="increment-btn">+</span>
+            <div className="product-info-container">
+              <div className="product-info">
+                {currentProduct.new ? <h4>New Product</h4> : ""}
+                <h3>{currentProduct.name}</h3>
+                <p>{currentProduct.description}</p>
+                <h5>$ {formattedPrice}</h5>
               </div>
 
-              <button>Add To cart</button>
-            </div>
+              <div className="counter-wrapper">
+                <div className="counter">
+                  <span
+                    className="decrement-btn"
+                    onClick={() => quantity > 1 && decrementQuantity()}
+                  >
+                    -
+                  </span>
+                  <span className="quantity">{quantity}</span>
+                  <span
+                    className="increment-btn"
+                    onClick={() => incrementQuantity()}
+                  >
+                    +
+                  </span>
+                </div>
 
-            <div className="features-container">
-              <h3>Features</h3>
-              <p>{currentProduct.features}</p>
-            </div>
-
-            <div className="in-the-box-container">
-              <h3>In The Box</h3>
-              <div className="items">
-                {currentProduct.includedItems.map((piece, index) => (
-                  <h2 key={index}>
-                    <span>{piece.quantity}X</span> {piece.item}
-                  </h2>
-                ))}
+                <button>Add To cart</button>
               </div>
             </div>
+          </div>
 
-            <div className="gallery-images-container">
-              {Object.keys(currentProduct.gallery).map((key) => (
-                <img
-                  key={key}
-                  src={
-                    isMobile
-                      ? currentProduct.gallery[key].mobile
-                      : isTablet
-                      ? currentProduct.gallery[key].tablet
-                      : currentProduct.gallery[key].desktop
-                  }
-                  alt={`Gallery Image ${key}`}
-                />
+          <div className="features-container">
+            <h3>Features</h3>
+            <p>{currentProduct.features}</p>
+          </div>
+
+          <div className="in-the-box-container">
+            <h3>In The Box</h3>
+            <div className="items">
+              {currentProduct.includedItems.map((piece, index) => (
+                <h2 key={index}>
+                  <span>{piece.quantity}X</span> {piece.item}
+                </h2>
               ))}
             </div>
+          </div>
+
+          <div className="gallery-images-container">
+            {Object.keys(currentProduct.gallery).map((key, index) => (
+              <img
+                key={key}
+                src={
+                  isMobile
+                    ? currentProduct.gallery[key].mobile
+                    : isTablet
+                    ? currentProduct.gallery[key].tablet
+                    : currentProduct.gallery[key].desktop
+                }
+                alt={`Gallery Image ${key}`}
+                style={{
+                  width: index < 2 ? "40%" : "50%",
+                  order: index === 0 ? "1" : index === 1 ? "3" : "2",
+                  alignSelf: "start",
+                  justifySelf: "start",
+                }}
+              />
+            ))}
           </div>
         </div>
 
@@ -99,6 +129,7 @@ function Product() {
                     ? otherProduct.image.tablet
                     : otherProduct.image.desktop
                 }
+                style={{gridArea: index === 0 ? "firstImg" : index === 1 ? "thirdImg" : "secondImg"}}
               />
               <h3>{otherProduct.name}</h3>
               <button>see product</button>
@@ -111,10 +142,24 @@ function Product() {
 }
 
 export default Product;
-/*{currentProduct.others.map((otherProduct, index) => (
-            <div className="new-item-container" key={index}>
-              {otherProduct.image.map((otherImg, index) => (
-                <img key={index} src={otherImg.mobile}/>
-              ))}
-            </div>
-          ))} */
+
+
+/*{Object.keys(currentProduct.gallery).map((key, index) => (
+              <img
+                key={key}
+                src={
+                  isMobile
+                    ? currentProduct.gallery[key].mobile
+                    : isTablet
+                    ? currentProduct.gallery[key].tablet
+                    : currentProduct.gallery[key].desktop
+                }
+                alt={`Gallery Image ${key}`}
+                style={{
+                  width: index < 2 ? "40%" : "50%",
+                  order: index === 0 ? "1" : index === 1 ? "3" : "2",
+                  alignSelf: "start",
+                  justifySelf: "start",
+                }}
+              />
+            ))} */

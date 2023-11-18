@@ -1,6 +1,7 @@
 import "../styles/earphones.css";
 import Allproducts from "../../products.json";
 import { useMediaQuery } from "react-responsive";
+import { Link } from "react-router-dom";
 
 const earphones = Allproducts.products.filter((product) =>
   product.slug.includes("earphones")
@@ -57,7 +58,7 @@ function Earphones() {
                   <h4>New Product</h4>
                   <h3>{earphone.name}</h3>
                   <p>{earphone.description}</p>
-                  <button>see product</button>
+                  <Link to={`/${earphone.category}/${earphone.slug}`}><button>see product</button></Link>
                 </div>
               </div>
             ))}

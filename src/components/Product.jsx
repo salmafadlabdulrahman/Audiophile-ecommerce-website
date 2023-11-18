@@ -1,4 +1,4 @@
-import { useParams, Link, useNavigate  } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import Allproducts from "../../products.json";
 import "../styles/product.css";
 import { useMediaQuery } from "react-responsive";
@@ -29,7 +29,6 @@ function Product() {
   const decrementQuantity = () => {
     setQuntity((prev) => prev - 1);
   };
-
 
   return (
     <div className="current-product-container">
@@ -139,7 +138,9 @@ function Product() {
                   }
                 />
                 <h3>{otherProduct.name}</h3>
-                <button>see product</button>
+                <Link to={`/${otherProduct.slug}`}>
+                  <button>see product</button>
+                </Link>
               </div>
             ))}
           </div>
@@ -150,3 +151,4 @@ function Product() {
 }
 
 export default Product;
+///${otherProduct.slug.split("/")[0]}

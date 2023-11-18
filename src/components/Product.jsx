@@ -105,12 +105,14 @@ function Product() {
                     ? currentProduct.gallery[key].tablet
                     : currentProduct.gallery[key].desktop
                 }
-                alt={`Gallery Image ${key}`}
                 style={{
-                  width: index < 2 ? "40%" : "50%",
-                  order: index === 0 ? "1" : index === 1 ? "3" : "2",
-                  alignSelf: "start",
-                  justifySelf: "start",
+                  gridArea: !isMobile
+                    ? index === 0
+                      ? "firstImg"
+                      : index === 1
+                      ? "thirdImg"
+                      : "secondImg"
+                    : ""
                 }}
               />
             ))}
@@ -126,10 +128,9 @@ function Product() {
                   isMobile
                     ? otherProduct.image.mobile
                     : isTablet
-                    ? otherProduct.image.tablet
+                    ? otherProduct.image.mobile
                     : otherProduct.image.desktop
                 }
-                style={{gridArea: index === 0 ? "firstImg" : index === 1 ? "thirdImg" : "secondImg"}}
               />
               <h3>{otherProduct.name}</h3>
               <button>see product</button>
@@ -142,24 +143,3 @@ function Product() {
 }
 
 export default Product;
-
-
-/*{Object.keys(currentProduct.gallery).map((key, index) => (
-              <img
-                key={key}
-                src={
-                  isMobile
-                    ? currentProduct.gallery[key].mobile
-                    : isTablet
-                    ? currentProduct.gallery[key].tablet
-                    : currentProduct.gallery[key].desktop
-                }
-                alt={`Gallery Image ${key}`}
-                style={{
-                  width: index < 2 ? "40%" : "50%",
-                  order: index === 0 ? "1" : index === 1 ? "3" : "2",
-                  alignSelf: "start",
-                  justifySelf: "start",
-                }}
-              />
-            ))} */

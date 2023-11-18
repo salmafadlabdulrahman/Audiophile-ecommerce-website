@@ -1,4 +1,4 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate  } from "react-router-dom";
 import Allproducts from "../../products.json";
 import "../styles/product.css";
 import { useMediaQuery } from "react-responsive";
@@ -7,6 +7,7 @@ import { useState } from "react";
 function Product() {
   const [quantity, setQuntity] = useState(1);
   const params = useParams();
+  const navigate = useNavigate();
   const isMobile = useMediaQuery({
     query: "(min-width: 100px) and (max-width: 480px)",
   });
@@ -29,11 +30,12 @@ function Product() {
     setQuntity((prev) => prev - 1);
   };
 
+
   return (
     <div className="current-product-container">
       <div className="product-wrapper">
         <Link className="get-back">
-          <button>Go Back</button>
+          <button onClick={() => navigate(-1)}>Go Back</button>
         </Link>
 
         <div className="product-details-container">
@@ -48,6 +50,7 @@ function Product() {
               }
               alt="earphones"
             />
+
             <div className="product-info-container">
               <div className="product-info">
                 {currentProduct.new ? <h4>New Product</h4> : ""}
@@ -78,19 +81,21 @@ function Product() {
             </div>
           </div>
 
-          <div className="features-container">
-            <h3>Features</h3>
-            <p>{currentProduct.features}</p>
-          </div>
+          <div className="additional-info-container">
+            <div className="features-container">
+              <h3>Features</h3>
+              <p>{currentProduct.features}</p>
+            </div>
 
-          <div className="in-the-box-container">
-            <h3>In The Box</h3>
-            <div className="items">
-              {currentProduct.includedItems.map((piece, index) => (
-                <h2 key={index}>
-                  <span>{piece.quantity}X</span> {piece.item}
-                </h2>
-              ))}
+            <div className="in-the-box-container">
+              <h3>In The Box</h3>
+              <div className="items">
+                {currentProduct.includedItems.map((piece, index) => (
+                  <h2 key={index}>
+                    <span>{piece.quantity}X</span> {piece.item}
+                  </h2>
+                ))}
+              </div>
             </div>
           </div>
 
@@ -112,7 +117,7 @@ function Product() {
                       : index === 1
                       ? "thirdImg"
                       : "secondImg"
-                    : ""
+                    : "",
                 }}
               />
             ))}
@@ -121,21 +126,23 @@ function Product() {
 
         <div className="other-products-container">
           <h3>You may also like</h3>
-          {currentProduct.others.map((otherProduct, index) => (
-            <div className="new-item-container" key={index}>
-              <img
-                src={
-                  isMobile
-                    ? otherProduct.image.mobile
-                    : isTablet
-                    ? otherProduct.image.mobile
-                    : otherProduct.image.desktop
-                }
-              />
-              <h3>{otherProduct.name}</h3>
-              <button>see product</button>
-            </div>
-          ))}
+          <div className="other-products-wrapper">
+            {currentProduct.others.map((otherProduct, index) => (
+              <div className="other-product-info-container" key={index}>
+                <img
+                  src={
+                    isMobile
+                      ? otherProduct.image.mobile
+                      : isTablet
+                      ? otherProduct.image.mobile
+                      : otherProduct.image.desktop
+                  }
+                />
+                <h3>{otherProduct.name}</h3>
+                <button>see product</button>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

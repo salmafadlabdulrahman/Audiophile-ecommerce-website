@@ -96,8 +96,8 @@ function Home() {
                 <div className="new-product-info">
                   <div className="info">
                     <h2>Yx1 earphones</h2>
-                    <Link to={`/earphones/yx1-earphones`}>
-                      <button>See Product</button>
+                    <Link to={`/earphones/yx1-earphones`} className="visit-product-btn">
+                      <button className="visit-product">See Product</button>
                     </Link>
                   </div>
                 </div>

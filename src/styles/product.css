@@ -13,7 +13,8 @@
 .counter-wrapper button,
 .in-the-box-container h3,
 .other-products-container h3,
-.new-item-container button {
+.other-product-info-container button,
+.product-info h3 {
   text-transform: uppercase;
 }
 
@@ -179,23 +180,23 @@
   font-size: 1.5em;
 }
 
-.new-item-container {
+.other-product-info-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin-bottom: 4em;
 }
 
-.new-item-container img {
+.other-product-info-container img {
   width: 100%;
   border-radius: 8px;
 }
 
-.new-item-container h3 {
+.other-product-info-container h3 {
   margin-top: 1.2em;
 }
 
-.new-item-container button {
+.other-product-info-container button {
   background: #d87d4a;
   color: white;
   border: none;
@@ -208,11 +209,19 @@
   cursor: pointer;
 }
 
+.other-products-wrapper {
+  margin-top: 2em;
+}
+
 .categoreies-container {
   margin-top: 10em;
 }
 
-@media (min-width: 500px) and (max-width: 989px){
+.get-back button:hover {
+  text-decoration: underline;
+}
+
+@media (min-width: 500px) {
   .product-wrapper {
     width: 95%;
   }
@@ -278,7 +287,95 @@
   }
 }
 
-
 @media (min-width: 990px) {
-  
+  .product-wrapper,
+  .categoreies-container,
+  .who-we-are-container {
+    width: 75%;
+  }
+
+  .get-back button {
+    margin-top: 2em;
+  }
+
+  .product-details-container {
+    margin-top: 2em;
+  }
+
+  .product-main-info {
+    gap: 2em;
+  }
+
+  .product-img img {
+    width: 100%;
+  }
+
+  .product-info h3 {
+    font-size: 2.5em;
+    margin-top: 0;
+    margin-top: 0.5em;
+    padding-right: 1em;
+  }
+
+  .product-info p {
+    padding-right: 2em;
+  }
+
+  .gallery-images-container {
+    height: 100%;
+  }
+
+  .gallery-images-container {
+    grid-template-columns: 1fr 1.4fr;
+  }
+
+  .additional-info-container {
+    display: flex;
+    align-items: start;
+    gap: 5em;
+    margin-top: 8em;
+  }
+
+  .features-container {
+    width: 60%;
+    margin-top: 0;
+  }
+
+  .features-container h3,
+  .in-the-box-container h3 {
+    font-size: 2em;
+  }
+
+  .in-the-box-container {
+    flex-direction: column;
+    gap: 0em;
+    margin-top: 0;
+  }
+
+  .items {
+    margin-top: 2em;
+  }
+
+  .other-product-info-container img {
+    width: 100%;
+  }
+
+  .other-products-container h3 {
+    font-size: 2em;
+  }
+
+  .other-products-wrapper {
+    display: flex;
+    gap: 2em;
+    margin-top: 2em;
+  }
+
+  .other-product-info-container h3 {
+    font-size: 1.6em;
+    letter-spacing: 1px;
+  }
+
+  .categoreies-container {
+    margin-top: 0;
+  }
 }

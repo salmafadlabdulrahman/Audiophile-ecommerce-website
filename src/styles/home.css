@@ -199,7 +199,7 @@
 }
 
 .product-display-content button,
-.info button {
+.visit-product-btn .visit-product {
   width: 170px;
   border: 1px solid #191919;
   background: none;
@@ -207,6 +207,10 @@
   letter-spacing: 1px;
   padding: 1em 0;
   margin-top: 1.7em;
+}
+
+.visit-product-btn .visit-product {
+  color: #191919;
 }
 
 .new-item-container {

@@ -3,6 +3,7 @@ import Allproducts from "../../products.json";
 import "../styles/product.css";
 import { useMediaQuery } from "react-responsive";
 import { useEffect, useState } from "react";
+import { addToCart } from "../../helper";
 
 function Product() {
   const [quantity, setQuntity] = useState(1);
@@ -19,6 +20,8 @@ function Product() {
   const currentProduct = Allproducts.products.filter(
     (product) => product.slug === params.slug
   )[0];
+
+  //console.log(currentProduct)
 
   useEffect(() => {
     setQuntity(1);
@@ -79,7 +82,7 @@ function Product() {
                   </button>
                 </div>
 
-                <button className="add-to-cart-btn">Add To cart</button>
+                <button className="add-to-cart-btn" onClick={() => addToCart(currentProduct, quantity)}>Add To cart</button>
               </div>
             </div>
           </div>

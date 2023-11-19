@@ -1,8 +1,8 @@
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, Link, useNavigate, useLocation } from "react-router-dom";
 import Allproducts from "../../products.json";
 import "../styles/product.css";
 import { useMediaQuery } from "react-responsive";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function Product() {
   const [quantity, setQuntity] = useState(1);
@@ -19,6 +19,10 @@ function Product() {
   const currentProduct = Allproducts.products.filter(
     (product) => product.slug === params.slug
   )[0];
+
+  useEffect(() => {
+    setQuntity(1);
+  }, [currentProduct]);
 
   const formattedPrice = currentProduct.price.toLocaleString();
 
@@ -60,22 +64,22 @@ function Product() {
 
               <div className="counter-wrapper">
                 <div className="counter">
-                  <span
+                  <button
                     className="decrement-btn"
                     onClick={() => quantity > 1 && decrementQuantity()}
                   >
                     -
-                  </span>
+                  </button>
                   <span className="quantity">{quantity}</span>
-                  <span
+                  <button
                     className="increment-btn"
                     onClick={() => incrementQuantity()}
                   >
                     +
-                  </span>
+                  </button>
                 </div>
 
-                <button>Add To cart</button>
+                <button className="add-to-cart-btn">Add To cart</button>
               </div>
             </div>
           </div>

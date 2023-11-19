@@ -11,6 +11,7 @@ import earphoneImgTablet from "/assets/home/tablet/image-earphones-yx1.jpg";
 import { useMediaQuery } from "react-responsive";
 import { Link } from "react-router-dom";
 import ProductsCategories from "../components/ProductsCategories";
+import { useEffect } from "react";
 
 function Home() {
   const isMobile = useMediaQuery({
@@ -20,6 +21,11 @@ function Home() {
   const isTablet = useMediaQuery({
     query: "(min-width: 481px) and (max-width: 989px)",
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
 
   return (
     <div className="home">

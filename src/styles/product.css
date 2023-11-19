@@ -69,7 +69,7 @@
   line-height: 1.5;
 }
 
-.counter-wrapper button {
+.add-to-cart-btn {
   background-color: #d87d41;
   color: white;
   border: none;
@@ -99,15 +99,23 @@
 
 .counter {
   background-color: #f1f1f1;
-  width: 125px;
-  padding: 0.8em 0.9em;
+  width: 130px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
 }
 
 .decrement-btn,
 .increment-btn {
   cursor: pointer;
+  padding: 1em 1.5em;
+  border: none;
+}
+
+.decrement-btn:hover,
+.increment-btn:hover {
+  background-color: #d1d1d1;
+  color: #d87d41;
 }
 
 .quantity {

@@ -2,16 +2,19 @@ import menuIcon from "/assets/shared/mobile/icon-hamburger.svg";
 import closeMenuIcon from "/assets/shared/mobile/icon-close-menu.svg";
 import logo from "/assets/shared/desktop/logo.svg";
 import cartIcon from "/assets/shared/desktop/icon-cart.svg";
+import emptyCart from "/assets/cart/empty-cart.png";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import ProductsCategories from "./ProductsCategories";
 
 import "../styles/navbar.css";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AppContext } from "./MainLayout";
 import { Link, NavLink } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
 
 function NavBar() {
   const { openMenu, setOpenMenu } = useContext(AppContext);
+  const [cartMenu, setCartMenu] = useState(false);
 
   const isDesktop = useMediaQuery({
     query: "(min-width: 990px)",
@@ -56,7 +59,23 @@ function NavBar() {
               )}
             </div>
 
-            <img src={cartIcon} className="cart-icon" />
+            <img
+              src={cartIcon}
+              className="cart-icon"
+              onClick={() => setCartMenu(true)}
+            />
+            {cartMenu && (
+              <div className="cart-menu">
+                <div
+                  className="overlay"
+                  onClick={() => setCartMenu(false)}
+                ></div>
+                <div className="cart-menu-container">
+                  <h2>Your cart is empty</h2>
+                  <ShoppingCartIcon width={"70px"} />
+                </div>
+              </div>
+            )}
           </nav>
 
           {openMenu ? (
@@ -76,4 +95,3 @@ function NavBar() {
 }
 
 export default NavBar;
-//query: "(min-width: 480px) and (max-width: 990px)",

@@ -39,7 +39,7 @@ nav {
   width: 100%;
   z-index: 222;
   border-radius: 0 0 15px 15px;
-  padding-bottom: 4 em;
+  padding-bottom: 4em;
 }
 
 .menu {
@@ -54,6 +54,35 @@ a {
 
 .cart-icon {
   cursor: pointer;
+}
+
+.cart-menu {
+  position: relative;
+  height: 100%;
+  /*display: flex;
+  justify-content: center;
+  align-items: center;*/
+}
+
+.cart-menu-container {
+  background-color: white;
+  position: absolute;
+  right: 0;
+  top: 60px;
+  z-index: 333;
+  width: 275px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em 2em;
+  border-radius: 10px;
+}
+
+.cart-menu-container h2 {
+  color: #00000080;
+  font-size: 1.1em;
+  margin-bottom: 1em;
 }
 
 @media (min-width: 480px) {

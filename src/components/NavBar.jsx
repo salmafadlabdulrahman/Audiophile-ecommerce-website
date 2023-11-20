@@ -15,12 +15,15 @@ import { fetchData } from "../../helper";
 function NavBar() {
   const { openMenu, setOpenMenu } = useContext(AppContext);
   const [cartMenu, setCartMenu] = useState(false);
+  const [buyList, setBuyList] = useState([])
 
   const isDesktop = useMediaQuery({
     query: "(min-width: 990px)",
   });
 
   const cartProducts = fetchData("products") || [];
+  
+
   return (
     <>
       <div className="navbar">
@@ -91,15 +94,25 @@ function NavBar() {
                             <div className="cart-product" key={index}>
                               <img src={product.cartImage} width={"70px"} />
                               <div className="cart-product-info">
-                                <span className="cart-product-name">{product.name}</span>
-                                <span className="cart-product-price">$ {product.price.toLocaleString()}</span>
+                                <span className="cart-product-name">
+                                  {product.name}
+                                </span>
+                                <span className="cart-product-price">
+                                  $ {product.price.toLocaleString()}
+                                </span>
                               </div>
                               <div className="product-counter">
                                 <button
                                   className="decrement-btn"
-                                  onClick={() =>
-                                    product.counter > 1 && decrementQuantity()
-                                  }
+                                  onClick={() => {
+                                    const updatedCounter = product.counter - 1;
+                                    cartProducts[index].counter = updatedCounter;
+                                    localStorage.setItem(
+                                      "products",
+                                      JSON.stringify(cartProducts)
+                                    );
+                                    setBuyList(cartProducts)
+                                  }}
                                 >
                                   -
                                 </button>
@@ -108,13 +121,36 @@ function NavBar() {
                                 </span>
                                 <button
                                   className="increment-btn"
-                                  onClick={() => incrementQuantity()}
+                                  onClick={() => {
+                                    const updatedCounter = product.counter + 1;
+                                    cartProducts[index].counter = updatedCounter;
+                                    localStorage.setItem(
+                                      "products",
+                                      JSON.stringify(cartProducts)
+                                    );
+                                    setBuyList(cartProducts)
+                                  }}
                                 >
                                   +
                                 </button>
                               </div>
                             </div>
                           ))}
+
+                          <div className="total">
+                            <h3>Total</h3>
+                            <span>
+                              ${" "}
+                              {cartProducts
+                                .reduce(
+                                  (acc, cur) => acc + cur.counter * cur.price,
+                                  0
+                                )
+                                .toLocaleString()}
+                            </span>
+                          </div>
+
+                          <button className="checkout-btn">checkout</button>
                         </div>
                       </div>
                     )}

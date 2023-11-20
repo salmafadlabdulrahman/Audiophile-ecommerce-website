@@ -74,6 +74,7 @@ a {
   align-items: center;
   border-radius: 7px;
   text-align: center;
+  padding-bottom: 1em;
 }
 
 .cart-menu-container h2 {

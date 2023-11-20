@@ -1,8 +1,4 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import MainLayout from "./components/MainLayout";
@@ -11,6 +7,7 @@ import Speakers from "./pages/Speakers";
 import Earphones from "./pages/Earphones";
 import Product from "./components/Product";
 import ScrollToTop from "./components/ScrollToTop";
+import Checkout from "./pages/Checkout";
 
 function App() {
   return (
@@ -31,6 +28,7 @@ function App() {
             <Route index element={<Earphones />} />
             <Route path=":slug" element={<Product />} />
           </Route>
+          <Route path="checkout" element={<Checkout />} />
         </Route>
       </Routes>
     </Router>

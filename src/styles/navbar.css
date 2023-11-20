@@ -192,6 +192,17 @@ a {
   letter-spacing: 1.5px;
 }
 
+.items-num {
+  background-color: #d87d4a;
+  color: white;
+  position: relative;
+  bottom: 12px;
+  right: 9px;
+  border-radius: 50%;
+  width: 23px;
+  text-align: center;
+}
+
 @media (min-width: 480px) {
   .logo-link {
     margin: 0;

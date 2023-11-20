@@ -13,16 +13,15 @@ import { useMediaQuery } from "react-responsive";
 import { fetchData } from "../../helper";
 
 function NavBar() {
+  const cartProducts = fetchData("products") || [];
   const { openMenu, setOpenMenu } = useContext(AppContext);
   const [cartMenu, setCartMenu] = useState(false);
-  const [buyList, setBuyList] = useState([])
+  const [buyList, setBuyList] = useState(cartProducts.reduce((acc, cur) => acc + cur.counter, 0))
 
   const isDesktop = useMediaQuery({
     query: "(min-width: 990px)",
   });
 
-  const cartProducts = fetchData("products") || [];
-  
 
   return (
     <>
@@ -69,6 +68,7 @@ function NavBar() {
               className="cart-icon"
               onClick={() => setCartMenu(true)}
             />
+            <div className="items-num">{buyList}</div>
             {cartMenu && (
               <div className="cart-menu">
                 <div
@@ -111,7 +111,7 @@ function NavBar() {
                                       "products",
                                       JSON.stringify(cartProducts)
                                     );
-                                    setBuyList(cartProducts)
+                                    setBuyList(prev => prev - 1)
                                   }}
                                 >
                                   -
@@ -128,7 +128,7 @@ function NavBar() {
                                       "products",
                                       JSON.stringify(cartProducts)
                                     );
-                                    setBuyList(cartProducts)
+                                    setBuyList(prev => prev + 1)
                                   }}
                                 >
                                   +

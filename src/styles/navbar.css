@@ -83,7 +83,8 @@ a {
 }
 
 .cart-menu-wrapper {
-  width: 80%;
+  /*width: 80%;*/
+  width: 90%;
   margin-top: 1.5em;
 }
 

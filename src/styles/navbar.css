@@ -73,6 +73,7 @@ a {
   justify-content: center;
   align-items: center;
   border-radius: 7px;
+  text-align: center;
 }
 
 .cart-menu-container h2 {
@@ -199,8 +200,7 @@ a {
   bottom: 12px;
   right: 9px;
   border-radius: 50%;
-  /*width: 23px;*/
-  padding: .1em .5em;
+  padding: 1px 8px;
   text-align: center;
 }
 

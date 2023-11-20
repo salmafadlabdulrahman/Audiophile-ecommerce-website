@@ -2,11 +2,13 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import Allproducts from "../../products.json";
 import "../styles/product.css";
 import { useMediaQuery } from "react-responsive";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { addToCart } from "../../helper";
+import { AppContext } from "./MainLayout";
 
 function Product() {
   const [quantity, setQuntity] = useState(1);
+  const {setBuyList} = useContext(AppContext)
   const params = useParams();
   const navigate = useNavigate();
   const isMobile = useMediaQuery({
@@ -21,7 +23,6 @@ function Product() {
     (product) => product.slug === params.slug
   )[0];
 
-  //console.log(currentProduct)
 
   useEffect(() => {
     setQuntity(1);
@@ -82,7 +83,10 @@ function Product() {
                   </button>
                 </div>
 
-                <button className="add-to-cart-btn" onClick={() => addToCart(currentProduct, quantity)}>Add To cart</button>
+                <button className="add-to-cart-btn" onClick={() => {
+                  addToCart(currentProduct, quantity)
+                  setBuyList(prev => prev + quantity)
+                }}>Add To cart</button>
               </div>
             </div>
           </div>
@@ -158,4 +162,3 @@ function Product() {
 }
 
 export default Product;
-///${otherProduct.slug.split("/")[0]}

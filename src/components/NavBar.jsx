@@ -14,14 +14,12 @@ import { fetchData } from "../../helper";
 
 function NavBar() {
   const cartProducts = fetchData("products") || [];
-  const { openMenu, setOpenMenu } = useContext(AppContext);
+  const { openMenu, setOpenMenu, buyList, setBuyList } = useContext(AppContext);
   const [cartMenu, setCartMenu] = useState(false);
-  const [buyList, setBuyList] = useState(cartProducts.reduce((acc, cur) => acc + cur.counter, 0))
 
   const isDesktop = useMediaQuery({
     query: "(min-width: 990px)",
   });
-
 
   return (
     <>
@@ -68,7 +66,12 @@ function NavBar() {
               className="cart-icon"
               onClick={() => setCartMenu(true)}
             />
-            <div className="items-num">{buyList}</div>
+            <div
+              className="items-num"
+              style={{ display: buyList === 0 ? "none" : "block" }}
+            >
+              {buyList}
+            </div>
             {cartMenu && (
               <div className="cart-menu">
                 <div
@@ -106,12 +109,23 @@ function NavBar() {
                                   className="decrement-btn"
                                   onClick={() => {
                                     const updatedCounter = product.counter - 1;
-                                    cartProducts[index].counter = updatedCounter;
-                                    localStorage.setItem(
-                                      "products",
-                                      JSON.stringify(cartProducts)
-                                    );
-                                    setBuyList(prev => prev - 1)
+
+                                    if (updatedCounter === 0) {
+                                      cartProducts.splice(index, 1);
+                                      localStorage.setItem(
+                                        "products",
+                                        JSON.stringify(cartProducts)
+                                      );
+                                      setBuyList((prev) => prev - 1);
+                                    } else {
+                                      cartProducts[index].counter =
+                                        updatedCounter;
+                                      localStorage.setItem(
+                                        "products",
+                                        JSON.stringify(cartProducts)
+                                      );
+                                      setBuyList((prev) => prev - 1);
+                                    }
                                   }}
                                 >
                                   -
@@ -123,12 +137,13 @@ function NavBar() {
                                   className="increment-btn"
                                   onClick={() => {
                                     const updatedCounter = product.counter + 1;
-                                    cartProducts[index].counter = updatedCounter;
+                                    cartProducts[index].counter =
+                                      updatedCounter;
                                     localStorage.setItem(
                                       "products",
                                       JSON.stringify(cartProducts)
                                     );
-                                    setBuyList(prev => prev + 1)
+                                    setBuyList((prev) => prev + 1);
                                   }}
                                 >
                                   +
@@ -177,3 +192,46 @@ function NavBar() {
 }
 
 export default NavBar;
+
+/*<button
+                                  className="decrement-btn"
+                                  onClick={() => {
+                                    const updatedCounter = product.counter - 1;
+                                    if (updatedCounter === 0) {
+                                      cartProducts.filter(item => item.name === product.name)
+                                      localStorage.setItem(
+                                        "products",
+                                        JSON.stringify(cartProducts)
+                                      );
+                                      setBuyList(prev => prev - 1)
+                                    } else {
+                                      //const updatedCounter = product.counter - 1;
+                                      cartProducts[index].counter = updatedCounter;
+                                      localStorage.setItem(
+                                        "products",
+                                        JSON.stringify(cartProducts)
+                                      );
+                                      setBuyList(prev => prev - 1)
+                                    }
+                                    
+                                    //setBuyList(prev => prev - 1)
+                                  }}
+                                >
+                                  -
+                                </button> */
+
+/*if (updatedCounter === 0) {
+                                      cartProducts.filter(item => item.name === product.name)
+                                      localStorage.setItem(
+                                        "products",
+                                        JSON.stringify(cartProducts)
+                                      );
+                                      setBuyList(prev => prev - 1)
+                                    } else {
+                                      cartProducts[index].counter = updatedCounter;
+                                      localStorage.setItem(
+                                        "products",
+                                        JSON.stringify(cartProducts)
+                                      );
+                                      setBuyList(prev => prev - 1)
+                                    } */

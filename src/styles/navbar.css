@@ -199,7 +199,8 @@ a {
   bottom: 12px;
   right: 9px;
   border-radius: 50%;
-  width: 23px;
+  /*width: 23px;*/
+  padding: .1em .5em;
   text-align: center;
 }
 

@@ -89,7 +89,14 @@ function NavBar() {
                       <div className="cart-products-wrapper">
                         <div className="cart-info">
                           <h2>Cart ({cartProducts.length})</h2>
-                          <button>Remove All</button>
+                          <button
+                            onClick={() => {
+                              localStorage.removeItem("products");
+                              setBuyList(0);
+                            }}
+                          >
+                            Remove All
+                          </button>
                         </div>
 
                         <div className="cart-products-container">
@@ -192,46 +199,3 @@ function NavBar() {
 }
 
 export default NavBar;
-
-/*<button
-                                  className="decrement-btn"
-                                  onClick={() => {
-                                    const updatedCounter = product.counter - 1;
-                                    if (updatedCounter === 0) {
-                                      cartProducts.filter(item => item.name === product.name)
-                                      localStorage.setItem(
-                                        "products",
-                                        JSON.stringify(cartProducts)
-                                      );
-                                      setBuyList(prev => prev - 1)
-                                    } else {
-                                      //const updatedCounter = product.counter - 1;
-                                      cartProducts[index].counter = updatedCounter;
-                                      localStorage.setItem(
-                                        "products",
-                                        JSON.stringify(cartProducts)
-                                      );
-                                      setBuyList(prev => prev - 1)
-                                    }
-                                    
-                                    //setBuyList(prev => prev - 1)
-                                  }}
-                                >
-                                  -
-                                </button> */
-
-/*if (updatedCounter === 0) {
-                                      cartProducts.filter(item => item.name === product.name)
-                                      localStorage.setItem(
-                                        "products",
-                                        JSON.stringify(cartProducts)
-                                      );
-                                      setBuyList(prev => prev - 1)
-                                    } else {
-                                      cartProducts[index].counter = updatedCounter;
-                                      localStorage.setItem(
-                                        "products",
-                                        JSON.stringify(cartProducts)
-                                      );
-                                      setBuyList(prev => prev - 1)
-                                    } */

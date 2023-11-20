@@ -8,7 +8,7 @@ import { AppContext } from "./MainLayout";
 
 function Product() {
   const [quantity, setQuntity] = useState(1);
-  const {setBuyList} = useContext(AppContext)
+  const { setBuyList } = useContext(AppContext);
   const params = useParams();
   const navigate = useNavigate();
   const isMobile = useMediaQuery({
@@ -22,7 +22,6 @@ function Product() {
   const currentProduct = Allproducts.products.filter(
     (product) => product.slug === params.slug
   )[0];
-
 
   useEffect(() => {
     setQuntity(1);
@@ -83,10 +82,15 @@ function Product() {
                   </button>
                 </div>
 
-                <button className="add-to-cart-btn" onClick={() => {
-                  addToCart(currentProduct, quantity)
-                  setBuyList(prev => prev + quantity)
-                }}>Add To cart</button>
+                <button
+                  className="add-to-cart-btn"
+                  onClick={() => {
+                    addToCart(currentProduct, quantity);
+                    setBuyList((prev) => prev + quantity);
+                  }}
+                >
+                  Add To cart
+                </button>
               </div>
             </div>
           </div>

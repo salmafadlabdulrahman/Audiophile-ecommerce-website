@@ -13,17 +13,18 @@ export const addToCart = (product, amount) => {
     cartImage: product.cartImage,
     counter: amount,
   };
-  
-  const existingProduct = existingProducts.findIndex((item) =>
-    item.id === product.id);
+
+  const existingProduct = existingProducts.findIndex(
+    (item) => item.id === product.id
+  );
 
   if (existingProduct !== -1) {
-    existingProducts[existingProduct].counter = amount
+    existingProducts[existingProduct].counter =
+      existingProducts[existingProduct].counter + amount;
   } else {
-    existingProducts.push(newProduct)
+    existingProducts.push(newProduct);
   }
 
   localStorage.setItem("products", JSON.stringify(existingProducts));
   return existingProducts;
 };
-

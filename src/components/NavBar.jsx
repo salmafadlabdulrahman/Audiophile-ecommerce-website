@@ -172,7 +172,14 @@ function NavBar() {
                             </span>
                           </div>
 
-                          <Link to={"checkout"}><button className="checkout-btn" onClick={() => setCartMenu(false)}>checkout</button></Link>
+                          <Link to={"checkout"}>
+                            <button
+                              className="checkout-btn"
+                              onClick={() => setCartMenu(false)}
+                            >
+                              checkout
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     )}

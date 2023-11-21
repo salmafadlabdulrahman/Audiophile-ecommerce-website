@@ -20,6 +20,7 @@
   color: #00000080;
   margin-top: 1.5em;
   font-size: 1em;
+  padding-left: 2em;
 }
 
 .get-back button:hover {
@@ -66,6 +67,16 @@ input {
   padding: 1.3em;
   border-radius: 8px;
   font-weight: 600;
+}
+
+.section input {
+  width: 100%;
+}
+
+input::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+  font-size: 1.1em;
 }
 
 .billing-section input:focus {
@@ -127,7 +138,7 @@ input[type="radio"] {
   accent-color: #d87d4a;
 }
 
-.product-info-container {
+.item-info-container {
   display: flex;
   position: relative;
   width: 100%;
@@ -146,42 +157,111 @@ input[type="radio"] {
 }
 
 .paying-details {
-    margin-top: 2em;
+  margin-top: 2em;
 }
 
 .paying-details div {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: .4em;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4em;
 }
 
 .paying-details h3 {
-    font-size: 1em;
-    color: #00000080;
-    font-weight: 400;
+  font-size: 1em;
+  color: #00000080;
+  font-weight: 400;
 }
 
 .paying-details span {
-    font-weight: 700;
-    font-size: 1.1em;
+  font-weight: 700;
+  font-size: 1.1em;
 }
 
 .grand-total {
-    margin-top: 2em;
+  margin-top: 2em;
 }
 
 .grand-total span {
-    color: #d87d4a;
+  color: #d87d4a;
 }
 
 .summary-section button {
+  width: 100%;
+  background-color: #d87d4a;
+  color: white;
+  text-transform: uppercase;
+  border: none;
+  margin-top: 2em;
+  padding: 1em;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+@media (min-width: 480px) {
+  .billing-section-fields,
+  .city-info-field {
+    display: flex;
+    gap: 1em;
+  }
+
+  .get-back button {
+    padding-left: 3em;
+  }
+
+  .billing-section-fields .section,
+  .city-info-field .section {
+    width: 50%;
+  }
+
+  .phone-number-field,
+  .country-field {
+    width: 50%;
+  }
+
+  .payement-methods-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .payment-input-field {
+    width: 50%;
+  }
+}
+
+@media (min-width: 990px) {
+  .checkout-container {
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 2em;
+  }
+  .checkout-wrapper {
+    display: flex;
+    gap: 1.5em;
     width: 100%;
-    background-color: #d87d4a;
-    color: white;
-    text-transform: uppercase;
-    border: none;
-    margin-top: 2em;
-    padding: 1em;
-    font-weight: 600;
-    letter-spacing: 1px;
+    justify-content: center;
+    margin-top: 1em;
+  }
+
+  .get-back button {
+    padding-left: 0em;
+    margin-bottom: 1em;
+  }
+
+  .checkout-form-container {
+    padding: 4em 3em;
+  }
+
+  .summary-section,
+  .checkout-form-container {
+    margin-top: 0;
+  }
+
+  .checkout-form-container {
+    width: 690px;
+  }
+
+  .summary-section {
+    width: 350px;
+    height: 500px;
+  }
 }

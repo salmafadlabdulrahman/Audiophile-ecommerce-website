@@ -69,6 +69,18 @@ input {
   font-weight: 600;
 }
 
+.section {
+  position: relative;
+}
+
+.error-msg {
+  color: #cd2c2c;
+  font-size: .8em;
+  right: 0;
+  bottom: 60px;
+  position: absolute;
+}
+
 .section input {
   width: 100%;
 }
@@ -110,6 +122,17 @@ input::placeholder {
   font-size: 0.9em;
 }
 
+.cash-on-delivery {
+  display: flex;
+  gap: 2em;
+  margin-top: 2em;
+}
+
+.cash-on-delivery p {
+  color: #00000080;
+  line-height: 1.5;
+}
+
 input[type="radio"] {
   transform: scale(1.4);
 }
@@ -136,6 +159,26 @@ input[type="radio"] {
 
 input[type="radio"] {
   accent-color: #d87d4a;
+}
+
+.payment-methods-fields {
+  margin-top: 2em;
+}
+
+.payment-methods-fields label {
+  font-size: .8em;
+  padding-left: 0;
+  color: #191919;
+  
+}
+
+.money-number-field {
+  margin-bottom: 1em;
+}
+
+.money-number-field input, .money-pin-field input{
+  width: 100%;
+  margin-top: .7em;
 }
 
 .item-info-container {
@@ -224,6 +267,14 @@ input[type="radio"] {
   }
 
   .payment-input-field {
+    width: 50%;
+  }
+  .payment-methods-fields {
+    display: flex;
+    gap: 1em;
+  }
+
+  .money-number-field, .money-pin-field {
     width: 50%;
   }
 }

@@ -1,14 +1,17 @@
 import { Link, useNavigate } from "react-router-dom";
 import { fetchData } from "../../helper";
 import "../styles/checkout.css";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import cashOnDeliveryIcon from "/assets/checkout/icon-cash-on-delivery.svg";
+import checkMarkIcon from "/assets/shared/desktop/icon-check-mark.svg";
+import { AppContext } from "../components/MainLayout";
 
 function Checkout() {
   const cartProducts = fetchData("products") || [];
+  const {setBuyList } = useContext(AppContext);
   const navigate = useNavigate();
   const [total, setTotal] = useState(
     cartProducts.reduce((acc, cur) => acc + cur.counter * cur.price, 0)
@@ -16,31 +19,36 @@ function Checkout() {
   const [vat, setVat] = useState(
     cartProducts.reduce((acc, cur) => acc + cur.counter * cur.price, 0) / 5
   );
+  const [shipping, setShipping] = useState(50)
   const [emoneyMethod, setEmoneyMethod] = useState(true);
+  const [formSubmission, setFormSubmission] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
+  const [confirmationMenu, setConfirmationMenu] = useState(false)
+  
 
   const onSubmit = (data) => {
-    console.log(data);
+    setFormSubmission(data);
+    setConfirmationMenu(true)
+    setSubmitted(true);
+    setBuyList(0)
   };
 
   const schema = yup.object().shape({
     name: yup.string().required("Field Cannot be empty"),
     email: yup.string().email().required("Field Cannot be empty"),
-    phoneNumber: yup
-      .number({ positive: "Number must be positive" })
-      .integer("Number must be an integer")
-      .min(18, "Number must be at least 18")
-      .required("Field Cannot be empty"),
+    phone: yup.string().required("Field Cannot be empty"),
     address: yup.string().required("Field Cannot be empty"),
-    zipCode: yup
-      .number()
-      .positive()
-      .integer()
-      .min(7)
-      .required("Field Cannot be empty"),
+    zipCode: yup.string().required("Field Cannot be empty"),
     city: yup.string().required("Field Cannot be empty"),
     country: yup.string().required("Field Cannot be empty"),
-    MoneyNumber: yup.number().positive().required("Field Cannot be empty"),
-    MoneyPin: yup.number().positive().required("Field Cannot be empty"),
+    MoneyNumber: yup.string().when("emoneyMethod", {
+      is: true,
+      then: yup.string().required("Field Cannot be empty"),
+    }),
+    MoneyPin: yup.string().when("emoneyMethod", {
+      is: true,
+      then: yup.string().required("Field Cannot be empty"),
+    }),
   });
 
   const {
@@ -51,12 +59,68 @@ function Checkout() {
     resolver: yupResolver(schema),
   });
 
+  const firstProduct = cartProducts[0];
+
   return (
     <div className="checkout">
       <div className="checkout-container">
         <Link className="get-back">
           <button onClick={() => navigate(-1)}>Go Back</button>
         </Link>
+        {confirmationMenu && (
+          <div className="confirmation-message-container">
+            <div
+              className="overlay"
+              onClick={() => {
+                setConfirmationMenu(false)
+                setTotal(0);
+                setVat(0);
+                setShipping(0);
+                localStorage.removeItem("products")
+              }}
+            ></div>
+            <div className="confirmation-wrapper">
+              <div className="confirmation-body">
+                <img src={checkMarkIcon} alt="check mark" />
+                <h1>
+                  Thank you <br />
+                  for your order
+                </h1>
+                <p>You will receive an email confirmation shortly</p>
+
+                <div className="items-confirmation">
+                  <div className="item-confirm-wrapper">
+                    <div className="item-info-container">
+                      <img src={firstProduct.cartImage} />
+                      <div className="cart-product-info">
+                        <span className="cart-product-name">
+                          {firstProduct.name}
+                        </span>
+                        <span className="cart-product-price">
+                          $ {firstProduct.price.toLocaleString()}
+                        </span>
+                      </div>
+                      <span className="item-quantity">
+                        x{firstProduct.counter}
+                      </span>
+                    </div>
+                    {cartProducts.length > 1 && (
+                      <h3>and {cartProducts.length - 1} other item(s)</h3>
+                    )}
+                  </div>
+
+                  <div className="grand-total-container">
+                    <h3>Grand total</h3>
+                    <h4>$ {total.toLocaleString()}</h4>
+                  </div>
+                </div>
+              </div>
+              <Link to={"/"}>
+                <button>Back to home</button>
+              </Link>
+            </div>
+          </div>
+        )}
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="checkout-wrapper">
             <div className="checkout-form-container">
@@ -108,19 +172,19 @@ function Checkout() {
                 </div>
                 <div className="phone-number-field section">
                   <label
-                    htmlFor="number"
-                    style={{ color: errors.phoneNumber ? "#cd2c2c" : "#000" }}
+                    htmlFor="phone"
+                    style={{ color: errors.phone ? "#cd2c2c" : "#000" }}
                   >
                     Phone Number
                   </label>
-                  <p className="error-msg">{errors.phoneNumber?.message}</p>
+                  <p className="error-msg">{errors.phone?.message}</p>
                   <input
                     type="number"
-                    name="number"
+                    name="phone"
                     placeholder="+1 202-555-0136"
-                    {...register("number")}
+                    {...register("phone")}
                     style={{
-                      border: errors.phoneNumber
+                      border: errors.phone
                         ? "1px solid #cd2c2c"
                         : "1px solid #cfcfcf",
                     }}
@@ -155,7 +219,7 @@ function Checkout() {
                 <div className="city-info-field">
                   <div className="zip-code-field section">
                     <label
-                      htmlFor="code"
+                      htmlFor="zipCode"
                       style={{ color: errors.zipCode ? "#cd2c2c" : "#000" }}
                     >
                       ZIP Code
@@ -163,9 +227,9 @@ function Checkout() {
                     <p className="error-msg">{errors.zipCode?.message}</p>
                     <input
                       type="number"
-                      name="code"
+                      name="zipCode"
                       placeholder="10001"
-                      {...register("code")}
+                      {...register("zipCode")}
                       style={{
                         border: errors.zipCode
                           ? "1px solid #cd2c2c"
@@ -245,7 +309,6 @@ function Checkout() {
                         type="radio"
                         id="Cash"
                         value="Cash"
-                        {...register("eMoneyPin")}
                         checked={!emoneyMethod}
                         onChange={() => setEmoneyMethod((prev) => !prev)}
                       />
@@ -261,7 +324,7 @@ function Checkout() {
                       style={{ position: "relative" }}
                     >
                       <label
-                        htmlFor="number"
+                        htmlFor="MoneyNumber"
                         style={{
                           color: errors.MoneyNumber ? "#cd2c2c" : "#000",
                         }}
@@ -271,10 +334,9 @@ function Checkout() {
                       <p className="error-msg">{errors.MoneyNumber?.message}</p>
                       <input
                         type="number"
-                        name="number"
+                        name="MoneyNumber"
                         placeholder="238521993"
-                        value="e-money"
-                        {...register("eMoneyNumber")}
+                        {...register("MoneyNumber")}
                         style={{
                           border: errors.MoneyNumber
                             ? "1px solid #cd2c2c"
@@ -288,16 +350,19 @@ function Checkout() {
                       style={{ position: "relative" }}
                     >
                       <label
-                        htmlFor="pin"
+                        htmlFor="MoneyPin"
                         style={{ color: errors.MoneyPin ? "#cd2c2c" : "#000" }}
                       >
                         e-Money PIN
                       </label>
-                      <p className="error-msg" style={{top: "6px"}}>{errors.MoneyPin?.message}</p>
+                      <p className="error-msg" style={{ top: "6px" }}>
+                        {errors.MoneyPin?.message}
+                      </p>
                       <input
                         type="number"
-                        name="pin"
+                        name="MoneyPin"
                         placeholder="6891"
+                        {...register("MoneyPin")}
                         style={{
                           border: errors.MoneyPin
                             ? "1px solid #cd2c2c"
@@ -322,42 +387,44 @@ function Checkout() {
 
             <div className="summary-section">
               <h3 className="summary">Summary</h3>
-              {cartProducts.map((item, index) => (
-                <div className="item-details" key={index}>
-                  <div className="item-info-container">
-                    <img src={item.cartImage} />
-                    <div className="cart-product-info">
-                      <span className="cart-product-name">{item.name}</span>
-                      <span className="cart-product-price">
-                        $ {item.price.toLocaleString()}
-                      </span>
+              {cartProducts.length < 1 ? <h2 className="no-items-msg">No items in cart</h2> : ""}
+              {!submitted &&
+                cartProducts.map((item, index) => (
+                  <div className="item-details" key={index}>
+                    <div className="item-info-container">
+                      <img src={item.cartImage} />
+                      <div className="cart-product-info">
+                        <span className="cart-product-name">{item.name}</span>
+                        <span className="cart-product-price">
+                          $ {item.price.toLocaleString()}
+                        </span>
+                      </div>
+                      <span className="item-quantity">x{item.counter}</span>
                     </div>
-                    <span className="item-quantity">x{item.counter}</span>
                   </div>
-                </div>
-              ))}
+                ))}
               <div className="paying-details">
                 <div className="total-sum">
                   <h3>Total</h3>
-                  <span>$ {total.toLocaleString()}</span>
+                  <span>$ {submitted ? 0 : total.toLocaleString()}</span>
                 </div>
                 <div className="shipping-fees">
                   <h3>Shipping</h3>
-                  <span>$ 50</span>
+                  <span>$ {submitted ? 0 : shipping}</span>
                 </div>
 
                 <div className="vat-fees">
                   <h3>Vat (included)</h3>
-                  <span>$ {vat.toLocaleString()}</span>
+                  <span>$ {submitted ? 0 : vat.toLocaleString()}</span>
                 </div>
 
                 <div className="grand-total">
                   <h3>Grand Total</h3>
-                  <span>$ {total + vat + 50}</span>
+                  <span>$ {submitted ? 0 : total + vat + 50}</span>
                 </div>
               </div>
 
-              <button type="submit">Continue & pay</button>
+              <button type="submit" disabled={cartProducts.length < 1} className={cartProducts.length < 1 ? "disables-btn" : ""}>Continue & pay</button>
             </div>
           </div>
         </form>

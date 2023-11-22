@@ -1,3 +1,5 @@
+//assets / icons imports
+
 import menuIcon from "/assets/shared/mobile/icon-hamburger.svg";
 import closeMenuIcon from "/assets/shared/mobile/icon-close-menu.svg";
 import logo from "/assets/shared/desktop/logo.svg";
@@ -5,11 +7,13 @@ import cartIcon from "/assets/shared/desktop/icon-cart.svg";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import ProductsCategories from "./ProductsCategories";
 
-import "../styles/navbar.css";
+//react imports
 import { useContext, useState } from "react";
-import { AppContext } from "./MainLayout";
 import { Link, NavLink } from "react-router-dom";
 import { useMediaQuery } from "react-responsive";
+
+import "../styles/navbar.css";
+import { AppContext } from "./MainLayout";
 import { fetchData } from "../../helper";
 
 function NavBar() {

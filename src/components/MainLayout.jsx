@@ -1,11 +1,18 @@
+//react imports
 import { Outlet, useLocation } from "react-router-dom";
+import { createContext, useState } from "react";
+
+//local files imports
 import NavBar from "./NavBar";
 import Footer from "./Footer";
-import { createContext, useState } from "react";
 import "../App.css";
+
+//componenets imports
 import ProductsCategories from "./ProductsCategories";
-import { fetchData } from "../../helper";
 import WhoWeAre from "./WhoWeAre";
+
+import { fetchData } from "../../helper";
+
 
 export const AppContext = createContext();
 

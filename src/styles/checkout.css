@@ -35,7 +35,10 @@
 
 .checkout-form-container h2,
 .checkout-form-container h3,
-.summary-section h3 {
+.summary-section h3,
+.confirmation-body h1,
+.grand-total-container h3,
+.confirmation-wrapper button {
   text-transform: uppercase;
 }
 
@@ -75,7 +78,7 @@ input {
 
 .error-msg {
   color: #cd2c2c;
-  font-size: .8em;
+  font-size: 0.8em;
   right: 0;
   bottom: 60px;
   position: absolute;
@@ -166,19 +169,19 @@ input[type="radio"] {
 }
 
 .payment-methods-fields label {
-  font-size: .8em;
+  font-size: 0.8em;
   padding-left: 0;
   color: #191919;
-  
 }
 
 .money-number-field {
   margin-bottom: 1em;
 }
 
-.money-number-field input, .money-pin-field input{
+.money-number-field input,
+.money-pin-field input {
   width: 100%;
-  margin-top: .7em;
+  margin-top: 0.7em;
 }
 
 .item-info-container {
@@ -240,6 +243,95 @@ input[type="radio"] {
   letter-spacing: 1px;
 }
 
+.confirmation-message-container {
+  position: relative;
+}
+
+.confirmation-wrapper {
+  background-color: #fff;
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  z-index: 33337777;
+  padding: 2em;
+  border-radius: 10px;
+}
+
+.confirmation-body h1 {
+  font-size: 1.5em;
+  margin-top: 1em;
+}
+
+.confirmation-body p {
+  color: #00000080;
+  margin-top: 1em;
+}
+
+.items-confirmation {
+  margin-top: 1.5em;
+}
+
+.item-info-container img {
+  width: 70px;
+  border-radius: 10px;
+}
+
+.items-confirmation {
+  background-color: rgb(248, 246, 246);
+  border-radius: 10px;
+}
+
+.grand-total-container {
+  background-color: #191919;
+  color: white;
+  border-radius: 0px 0px 10px 10px;
+  padding: 1em 1.5em;
+}
+
+.grand-total-container h3 {
+  color: #ffffff80;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.grand-total-container h4 {
+  margin-top: 0.5em;
+}
+
+.item-confirm-wrapper {
+  padding: 1em 1.5em;
+}
+
+.item-confirm-wrapper h3 {
+  color: #00000080;
+  font-size: 0.8em;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.confirmation-wrapper button {
+  background-color: #d87d4a;
+  border: none;
+  color: white;
+  width: 100%;
+  margin-top: 2em;
+  padding: 1em;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.no-items-msg {
+  color: #00000080;
+  text-align: center;
+  font-size: .9em;
+}
+
+.disables-btn {
+  opacity: 0.4;
+  cursor: not-allowed;
+  filter: contrast(1.18);
+}
+
 @media (min-width: 480px) {
   .billing-section-fields,
   .city-info-field {
@@ -274,7 +366,8 @@ input[type="radio"] {
     gap: 1em;
   }
 
-  .money-number-field, .money-pin-field {
+  .money-number-field,
+  .money-pin-field {
     width: 50%;
   }
 }

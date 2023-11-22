@@ -8,6 +8,10 @@
   margin-top: 1.5em;
 }
 
+.product-wrapper a button{
+  padding-left: 0;
+}
+
 .product-info h4,
 .features-container h3,
 .counter-wrapper button,

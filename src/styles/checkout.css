@@ -276,9 +276,10 @@ input[type="radio"] {
   border-radius: 10px;
 }
 
-.items-confirmation {
+.item-confirm-wrapper {
   background-color: rgb(248, 246, 246);
   border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
 }
 
 .grand-total-container {
@@ -370,7 +371,32 @@ input[type="radio"] {
   .money-pin-field {
     width: 50%;
   }
+
+  .confirmation-wrapper {
+    width: 70%;
+    margin: 0 auto;
+  }
 }
+
+@media (min-width: 768px) {
+  .items-confirmation {
+    display: flex;
+  }
+
+  .confirmation-wrapper {
+    width: 60%;
+    margin: 0 auto;
+  }
+
+  .item-confirm-wrapper {
+    border-radius: 10px 0px 0px 10px;
+  }
+  
+  .grand-total-container {
+    border-radius: 0px 10px 10px 0px;
+  }
+}
+
 
 @media (min-width: 990px) {
   .checkout-container {
@@ -407,5 +433,10 @@ input[type="radio"] {
   .summary-section {
     width: 350px;
     height: 500px;
+  }
+
+  .confirmation-wrapper {
+    width: 40%;
+    margin: 0 auto;
   }
 }

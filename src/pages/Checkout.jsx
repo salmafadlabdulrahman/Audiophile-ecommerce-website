@@ -122,7 +122,7 @@ function Checkout() {
                 </div>
               </div>
               <Link to={"/"}>
-                <button>Back to home</button>
+                <button onClick={() => localStorage.removeItem("products")}>Back to home</button>
               </Link>
             </div>
           </div>

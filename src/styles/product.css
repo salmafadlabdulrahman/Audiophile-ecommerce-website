@@ -217,8 +217,10 @@
   letter-spacing: 1.5px;
   width: 160px;
   padding: 1em;
+  padding-right: 0;
   margin-top: 2em;
   cursor: pointer;
+  
 }
 
 .other-products-wrapper {

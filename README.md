@@ -28,7 +28,7 @@ Your users should be able to:
 
 ### Links
 
-- Solution URL: [solution URL here](https://github.com/salmafadlabdulrahman/Arch-Studio-website/tree/main)
+- Solution URL: [solution URL here](https://github.com/salmafadlabdulrahman/Audiophile-ecommerce-website/tree/main)
 - Live Site URL: [live site URL here](https://audiophile-ecommerce-website-ebon.vercel.app/)
 
 ## My process

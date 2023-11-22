@@ -1,17 +1,23 @@
+//react imports
 import { Link, useNavigate } from "react-router-dom";
-import { fetchData } from "../../helper";
-import "../styles/checkout.css";
 import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
+
+//local imports
+import { fetchData } from "../../helper";
+import "../styles/checkout.css";
 import cashOnDeliveryIcon from "/assets/checkout/icon-cash-on-delivery.svg";
 import checkMarkIcon from "/assets/shared/desktop/icon-check-mark.svg";
 import { AppContext } from "../components/MainLayout";
 
+//form validation library
+import * as yup from "yup";
+import { yupResolver } from "@hookform/resolvers/yup";
+
+
 function Checkout() {
   const cartProducts = fetchData("products") || [];
-  const {setBuyList } = useContext(AppContext);
+  const { setBuyList } = useContext(AppContext);
   const navigate = useNavigate();
   const [total, setTotal] = useState(
     cartProducts.reduce((acc, cur) => acc + cur.counter * cur.price, 0)

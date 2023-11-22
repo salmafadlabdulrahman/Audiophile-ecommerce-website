@@ -1,8 +1,12 @@
+//react imports
 import { useParams, Link, useNavigate } from "react-router-dom";
-import Allproducts from "../../products.json";
-import "../styles/product.css";
 import { useMediaQuery } from "react-responsive";
 import { useContext, useEffect, useState } from "react";
+
+//local imports
+import Allproducts from "../../products.json";
+import "../styles/product.css";
+
 import { addToCart } from "../../helper";
 import { AppContext } from "./MainLayout";
 
